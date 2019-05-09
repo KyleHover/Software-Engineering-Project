@@ -123,7 +123,11 @@ public class MainAppMS4 extends Application {
         VBox vboxRight = new VBox();
         vboxRight.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         Canvas canvasMiniMap = new Canvas(200,200);
+<<<<<<< HEAD
         FXCanvasDevice fxMiniMap = new FXCanvasDevice(canvasMainView);
+=======
+        FXCanvasDevice fxMiniMap = new FXCanvasDevice(canvasMiniMap);
+>>>>>>> origin/NEW_MODULE_B
         Canvas canvasFactory = new Canvas(200, 800);
         FXCanvasDevice fxFactoryPanel = new FXCanvasDevice(canvasFactory);
         canvasMiniMap.getGraphicsContext2D().strokeText("MiniMap", 20, 100);
@@ -139,6 +143,7 @@ public class MainAppMS4 extends Application {
         FXSoundDevice fxSound = new FXSoundDevice();
         
         //4. Create Test Scenario Buttons
+<<<<<<< HEAD
         GameEngine g1 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         
         GameEngine g2 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
@@ -146,6 +151,10 @@ public class MainAppMS4 extends Application {
          createButton("Test1", g1, vboxTestButtons);
         createButton("Test2", g2, vboxTestButtons);
         createButton("Test3", g3, vboxTestButtons);
+=======
+        ModuleBTestGameEngine g1 = new ModuleBTestGameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("Test1", g1, vboxTestButtons);
+>>>>>>> origin/NEW_MODULE_B
         
        
         

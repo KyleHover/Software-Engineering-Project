@@ -55,6 +55,21 @@ public interface ICanvasDevice {
     public int getHeight();
     
     /**
+<<<<<<< HEAD
+=======
+     * Get its x coordinate in logical map.
+     * @return 
+     */
+    public int getX();
+    
+    /**
+     * Get its y coordinate in logical map
+     * @return 
+     */
+    public int getY();
+    
+    /**
+>>>>>>> origin/NEW_MODULE_B
      * Create the named stop watch for measuring performance
      * @param name - name of the stop watch
      * @return non-null instance of a stop watch object
@@ -97,7 +112,11 @@ public interface ICanvasDevice {
      * @param y
      * @param fontsize 
      */
+<<<<<<< HEAD
     public  void drawText(String msg, int x, int y, int fontsize);
+=======
+    public void drawText(String msg, int x, int y, int fontsize);
+>>>>>>> origin/NEW_MODULE_B
     
     /**
      * Draw a line from (x1,y1) to (x2,y2)
@@ -106,6 +125,28 @@ public interface ICanvasDevice {
      * @param x2
      * @param y2 
      */
+<<<<<<< HEAD
     public  void drawLine(int x1, int y1, int x2, int y2);
+=======
+    public void drawLine(int x1, int y1, int x2, int y2);
+    
+    /**
+     * Draw a rectangle of a given color. Color can be hex string like "#FF0000" for red
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param color 
+     */
+    public void drawRectangle(int x, int y, int w, int h, String color);
+    
+    /**
+     * Take a snapshot of the the canvas and save it in the given name.
+     * Actually no need to really save it to file system, just save the
+     * WritableImage in the hashmap system of the FXCanvas
+     * @param imgname 
+     */
+    public void takeSnapshot(String imgname);
+>>>>>>> origin/NEW_MODULE_B
     
 }

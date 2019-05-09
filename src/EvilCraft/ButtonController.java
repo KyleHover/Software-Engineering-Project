@@ -20,7 +20,10 @@ package EvilCraft;
 import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import javafx.scene.canvas.GraphicsContext;
+=======
+>>>>>>> origin/NEW_MODULE_B
 
 /**
  * Represents the Palette of buttons for creating units
@@ -39,6 +42,7 @@ public class ButtonController implements IGameEngine{
      * @param canvas 
      */
     public ButtonController(Team team, ICanvasDevice canvas){
+<<<<<<< HEAD
         this.myteam = team;
         this.canvas = canvas;
         String [] arrTypes = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
@@ -55,11 +59,18 @@ public class ButtonController implements IGameEngine{
             this.arrButtons.add(button);
         }
         this.canvas.setupEventHandler(this);
+=======
+        throw new UnsupportedOperationException("not implemented yet!");
+>>>>>>> origin/NEW_MODULE_B
     }
     
     @Override
     public void init() {
+<<<<<<< HEAD
        
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_B
     }
 
     /**
@@ -67,6 +78,7 @@ public class ButtonController implements IGameEngine{
      */
     @Override
     public void onTick() {
+<<<<<<< HEAD
         //1. draw the bank account
         String sCash = "$" + this.myteam.getCash();
         this.canvas.drawText(sCash, 10, 0, 20);
@@ -77,6 +89,9 @@ public class ButtonController implements IGameEngine{
             btn.update();
             btn.draw(canvas);
         }
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_B
     }
 
     @Override
@@ -86,6 +101,7 @@ public class ButtonController implements IGameEngine{
 
     @Override
     public void onLeftClick(ICanvasDevice canvas, int x, int y) {
+<<<<<<< HEAD
         if(y>=100){
             int idx = y/100-1;
             if(idx>=0 && idx<=2){
@@ -93,12 +109,23 @@ public class ButtonController implements IGameEngine{
                 btn.onClick();
             }
         }
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_B
     }
 
     @Override
     public void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+>>>>>>> origin/NEW_MODULE_B
    
     
 }

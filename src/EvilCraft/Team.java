@@ -48,6 +48,7 @@ public class Team {
      * @param spriteName
      * @return 
      */
+<<<<<<< HEAD
     protected static String [] units = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
     protected int [] costs = new int [] {100, 500, 1000};
     public boolean PurchaseSprite(String spriteName){
@@ -61,6 +62,11 @@ public class Team {
         }
         return false;
         
+=======
+  
+    public boolean PurchaseSprite(String spriteName){
+       throw new UnsupportedOperationException("not implemented yet");
+>>>>>>> origin/NEW_MODULE_B
     }
     
     public int getCash(){

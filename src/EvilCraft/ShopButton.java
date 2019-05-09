@@ -21,22 +21,33 @@ import BridgePattern.ICanvasDevice;
 
 /**
  * Represents a button for creating units
+<<<<<<< HEAD
  *
  * @author csc190
  */
 public class ShopButton {
 
+=======
+ * @author csc190
+ */
+public class ShopButton {
+>>>>>>> origin/NEW_MODULE_B
     //-------- DATA MEMBERS -------------
     public static final String TANK = "TANK";
     public static final String INFANTRY = "INFANTRY";
     public static final String PLANE = "PLANE";
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/NEW_MODULE_B
     protected int x, y, w, h; //coordinates relative to ButtonController    
     protected String unitName; //of of defined constant TANK, INFANTRY, PLANCE
     protected int creationTime; //e.g., 500 ticks for tank etc
     protected int tickLeft = 0; //when it's not zero, the button is in progress
     protected String picPath; //the button figure to draw
     protected Team team; //which team it is serving
+<<<<<<< HEAD
 
     //--------- OPERATIONS --------------
     public ShopButton(Team team, String unitName, int creationTime, String picPath, int x, int y, int w, int h) {
@@ -50,10 +61,19 @@ public class ShopButton {
         this.h = h;
     }
 
+=======
+    
+    //--------- OPERATIONS --------------
+    public ShopButton(Team team, String unitName, int creationTime, String picPath, int x, int y, int w, int h){
+        throw new UnsupportedOperationException("not implemented yet!");
+    }
+    
+>>>>>>> origin/NEW_MODULE_B
     /**
      * If it's in progress or Team has no money to pay, do not perform anything;
      * Otherwise call startTimer() to start the manufature process.
      */
+<<<<<<< HEAD
     public void onClick() {
         if (this.tickLeft == 0) {
             if (this.team.PurchaseSprite(this.unitName)) {
@@ -113,4 +133,35 @@ public class ShopButton {
         canvas.drawLine(lineX, y, lineX, y+100);
     }
 
+=======
+    public void onClick(){
+        throw new UnsupportedOperationException("not implemented yet!");
+    }
+    
+    /**
+     * Simply set ticksLeft to creationTime
+     */
+    public void startTimer(){
+        throw new UnsupportedOperationException("not implemented yet!");
+    }
+    
+    /**
+     * Called at every tick. Update ticksLeft. If it's 1, it's time to
+     * create the sprite and add to Team and GameEngine. Note: to call GameEngine
+     * to find free spot.
+     */
+    public void update(){
+        throw new UnsupportedOperationException("not implemented yet!");
+    }
+    
+    /**
+     * Draw the button
+     * @param canvas 
+     */
+    public void draw(ICanvasDevice canvas){
+        throw new UnsupportedOperationException("not implemented yet!");
+    }
+    
+    
+>>>>>>> origin/NEW_MODULE_B
 }

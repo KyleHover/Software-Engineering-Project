@@ -28,8 +28,30 @@ public abstract class Sprite {
     protected int x, y, w, h;
     protected Team team;
     protected boolean bDead = false;
+<<<<<<< HEAD
     
     //------- OPERATIONS -------------
+=======
+    protected Sprite attackGoal = null;
+    protected Point navigationGoal = null;
+    
+    //------- OPERATIONS -------------
+    /**
+     * Set the long term navigation goal to pt
+     * @param pt 
+     */
+    public void setNavigationGoal(Point pt){
+        this.navigationGoal = pt;
+    }
+    
+    /**
+     * Set the PRIORITY attack goal. If sp is in the range, it should be attacked first.
+     * @param sp 
+     */
+    public void setAttackGoal(Sprite sp){
+        this.attackGoal = sp;
+    }
+>>>>>>> origin/NEW_MODULE_B
     public void setDead(){
         this.bDead = true;
     }
