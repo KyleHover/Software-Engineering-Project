@@ -25,8 +25,23 @@ import BridgePattern.ICanvasDevice;
  */
 public class Bullet extends Sprite{
 
+<<<<<<< HEAD
     public Bullet(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h);
+=======
+    /**
+     * Note altitude decides if it hits units in sky or not
+     * @param team
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param lifepoints
+     * @param altitude 
+     */
+    public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude) {
+        super(team, x, y, w, h, lifepoints, altitude, 0);
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
@@ -43,5 +58,23 @@ public class Bullet extends Sprite{
     public void drawOnMiniMap(ICanvasDevice minimap) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public Point getNextMove() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFacing(Point pt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void adjustBodyHeading(Point pt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+>>>>>>> origin/NEW_MODULE_C
     
 }

@@ -21,6 +21,9 @@ import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import BridgePattern.ISoundDevice;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+
 
 /**
  *
@@ -39,10 +42,13 @@ public class GameEngine implements IGameEngine{
     protected ArrayList<StaticObject> arrMapTiles = new ArrayList<StaticObject>();
     protected ArrayList<Team> arrTeams = new ArrayList<Team>();
     protected ButtonController humanController;
-    protected ArrayList<Sprite> arrSelected = null;
     protected MouseSprite mouseSprite = null;
     protected boolean [][] taken;
-    //---------------- OPERATIONS ------------------
+    protected ArrayList<Sprite> arrSelected = null; //set by Drag operations and released by left click
+    protected AI ai;
+    protected ButtonController aiButtonController= null;
+//---------------- OPERATIONS ------------------
+
     /**
      * Constructor.
      * An evil craft game engine has 3 canvases: main view, mini map and a panel for manufacturing units
@@ -79,21 +85,25 @@ public class GameEngine implements IGameEngine{
     }
     
     public static GameEngine getInstance(){
-        
         return ge_instance;
     }
 
     @Override
     public void init() {
-        //set up the ButtonController
-        humanController = new ButtonController(this.arrTeams.get(0), this.buttonCanvas);
+        this.mouseSprite = new MouseSprite(mainview, minimap, map);
         this.mainview.setupEventHandler(this);
-
+        this.loadGameMap(this.mapPath);
+        humanController = new ButtonController(this.arrTeams.get(0), this.buttonCanvas);
+        this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
+        this.ai = new AI(this.getAITeam(), this.aiButtonController);
         this.minimap.setupEventHandler(this);
         for(Sprite sp: this.arrMapTiles){
             sp.drawOnMiniMap(minimap);
         }
         this.createBackground();
+    }
+        
+        
         //DON'T KILL THE following line
         ge_instance  = this;
         //DON'T KILL THE ABOVE LINE
@@ -101,11 +111,29 @@ public class GameEngine implements IGameEngine{
 
     @Override
     public void onTick() {
+        
+=======
+        
+
+    protected int ticks = 0;
+    @Override
+    public void onTick() {
+        ticks++;
         this.mainview.clear();
         this.minimap.clear();
+        
         for(int i=0; i<this.arrMapTiles.size(); i++){
             this.arrMapTiles.get(i).drawOnMainView(mainview);
         }
+        for(int i=0; i<this.arrSprites.size(); i++){
+            Sprite sp = this.arrSprites.get(i);
+            sp.update();
+            sp.setNextMove();
+            sp.drawOnMainView(mainview);
+        }
+        this.ai.update();
+
+        
         this.drawBackgroundOfMiniMap();
         for(int i=0; i<this.arrSprites.size(); i++){
             this.arrSprites.get(i).update();
@@ -123,6 +151,7 @@ public class GameEngine implements IGameEngine{
 
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
+<<<<<<< HEAD
         Point pt = this.getGlobalCoordinates(canvas, x, y, map);
         Point pt1 = new Point(pt.x-25, pt.y-25);
         Point pt2 = new Point(pt.x+25, pt.y+25);
@@ -135,23 +164,34 @@ public class GameEngine implements IGameEngine{
             }
         }
         this.mouseSprite.handleEvnet(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
+=======
+        
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void onLeftClick(ICanvasDevice canvas, int x, int y) {
+<<<<<<< HEAD
         this.arrSelected = null;
         if(canvas==this.minimap){
             Point pt = this.getGlobalCoordinates(canvas, x, y, map);
             this.mainview.setViewPort(pt.x-mainview.getWidth()/2, pt.y-mainview.getHeight()/2);
         }
         this.mouseSprite.handleEvnet(MouseEvent.LeftClick, canvas, x, y, null);
+=======
+        
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2) {
+<<<<<<< HEAD
         Point pt1 = this.getGlobalCoordinates(canvas, x1, y1, map);
         Point pt2 = this.getGlobalCoordinates(canvas, x2, y2, map);
         this.arrSelected = this.getArrSprites(pt1, pt2, this.getPlayerTeam());
+=======
+        
+>>>>>>> origin/NEW_MODULE_C
     }
     
     /**
@@ -160,6 +200,7 @@ public class GameEngine implements IGameEngine{
      * @param mapPath 
      */
     public void loadGameMap(String mapPath){
+<<<<<<< HEAD
         this.mapPath = mapPath;
         this.map = new Map(mapPath, this.mainview);
         for(int i=0; i<map.getNumRows(); i++){
@@ -179,6 +220,24 @@ public class GameEngine implements IGameEngine{
                      this.arrMapTiles.add(s1);
                 }
                 
+=======
+        this.map = new Map(mapPath, mainview);
+        for(int i=0; i<map.getNumCols(); i++){
+            for(int j=0; j<map.getNumCols(); j++){
+                String tile = map.getMapTile(i, j);
+                StaticObject so = null;
+                if(tile.equals("b1")){
+                    so = new Base(this.getPlayerTeam(), j*100, i*100, 100, 100, "b1");
+                    this.getPlayerTeam().setBase((Base)so);
+                }else if(tile.equals("b2")){
+                    so = new Base(this.getPlayerTeam(), j*100, i*100, 100, 100, "b1");
+                    this.getAITeam().setBase((Base)so);
+                }else{
+                    so = new StaticObject(null, j*100, i*100, 100, 100, tile, 10000);
+                }
+                
+                this.arrMapTiles.add(so);
+>>>>>>> origin/NEW_MODULE_C
             }
         }
     }
@@ -192,6 +251,7 @@ public class GameEngine implements IGameEngine{
      * @param h
      * @return 
      */
+<<<<<<< HEAD
     
     public Point getFreeSpace(int x, int y, int w, int h){
         for(int i=0; i<20; i++){
@@ -207,6 +267,10 @@ public class GameEngine implements IGameEngine{
             }
         }
         return null;
+=======
+    public Point getFreeSpace(int x, int y, int w, int h){
+        throw new UnsupportedOperationException("not implemented yet!");
+>>>>>>> origin/NEW_MODULE_C
     }
     
     public void addSprite(Sprite s){
@@ -222,6 +286,7 @@ public class GameEngine implements IGameEngine{
      * @return 
      */
     public Team CheckWinner(){
+<<<<<<< HEAD
         for(int i=0; i<=1; i++){
             Team team = this.arrTeams.get(i);
             if(team.getBase().isDead()){
@@ -229,6 +294,9 @@ public class GameEngine implements IGameEngine{
             }
         }
         return null;
+=======
+        throw new UnsupportedOperationException("not implemented yet!");
+>>>>>>> origin/NEW_MODULE_C
     }
     
     /**
@@ -236,10 +304,16 @@ public class GameEngine implements IGameEngine{
      * @param winner 
      */
     public void endGame(Team winner){
+<<<<<<< HEAD
         String msg = winner.getName().equals("Human")? "You Win!": "You Lose";
         this.mainview.drawText(msg, 400, 400, 20); 
     }
 
+=======
+        throw new UnsupportedOperationException("not implemented yet!");
+    }
+    
+>>>>>>> origin/NEW_MODULE_C
     /**
      * Translates the (x1,y1) in canvas into the coordinates in Map
      * @param canvas
@@ -248,6 +322,7 @@ public class GameEngine implements IGameEngine{
      * @return 
      */
     public Point getGlobalCoordinates(ICanvasDevice canvas, int x1, int y1, Map map){
+<<<<<<< HEAD
         int cw = canvas.getWidth();
         int ch = canvas.getHeight();
         int mw = map.getNumCols()*100;
@@ -255,6 +330,9 @@ public class GameEngine implements IGameEngine{
         int x2 = canvas==this.mainview? canvas.getX()+x1: canvas.getX() + x1 * mw/cw;
         int y2 = canvas==this.mainview? canvas.getY() + y1: canvas.getY() + y1*mh/ch;
         return new Point(x2,y2);
+=======
+        throw new UnsupportedOperationException("not implemented yet");
+>>>>>>> origin/NEW_MODULE_C
     }
     
     /**
@@ -265,8 +343,12 @@ public class GameEngine implements IGameEngine{
      * @return 
      */
     public Point getNewLeftTopCoordinates(Point center, ICanvasDevice mainview){
+<<<<<<< HEAD
         Point nl = new Point(center.x- mainview.getWidth()/2, center.y - mainview.getHeight()/2);
         return nl;
+=======
+        throw new UnsupportedOperationException("not implemented yet");
+>>>>>>> origin/NEW_MODULE_C
     }
     /**
      * 
@@ -286,6 +368,10 @@ public class GameEngine implements IGameEngine{
     }
     
     protected boolean isCollide(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2){
+<<<<<<< HEAD
+=======
+       //calculate the intersection
+>>>>>>> origin/NEW_MODULE_C
        int xmax = Integer.max(x1, x2);
        int xmin = Integer.min(x1+w1-1, x2+w2-1);
        int ymax = Integer.max(y1, y2);
@@ -302,6 +388,7 @@ public class GameEngine implements IGameEngine{
      * @return 
      */
     public ArrayList<Sprite> getArrSprites(Point pt1, Point pt2, Team team){
+<<<<<<< HEAD
          //slow version
          ArrayList<Sprite> toRet = new ArrayList<Sprite>();
          for(int i=0; i<this.arrSprites.size(); i++){
@@ -321,14 +408,28 @@ public class GameEngine implements IGameEngine{
              }
          }
          return toRet;
+=======
+         ArrayList<Sprite> ret = new ArrayList<Sprite>();
+         for(int i=0; i<this.arrSprites.size(); i++){
+             Sprite s = arrSprites.get(i);
+             if(isCollide(pt1.x, pt1.y, pt2.x-pt1.x, pt2.y-pt1.y, s.getX(), s.getY(), s.getW(), s.getH())){
+                 ret.add(s);
+             }
+         }
+         return ret;
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
+<<<<<<< HEAD
         Point pt = this.getGlobalCoordinates(canvas, x, y, map);
         ArrayList<Sprite> arrSprites = this.getArrSprites(new Point(pt.x-25, pt.y-25), new Point(pt.x+25, pt.y+25), this.getAITeam());
         this.mouseSprite.handleEvnet(MouseEvent.MouseMove, canvas, x, y, arrSprites);
         
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_C
     }
     
     /**
@@ -339,15 +440,75 @@ public class GameEngine implements IGameEngine{
      * Note: call canvas.takeSnapshot function.
      */
     public void createBackground(){
+<<<<<<< HEAD
         this.minimap.takeSnapshot("miniview_snapshot");
+=======
+        throw new UnsupportedOperationException("not implemented");
+>>>>>>> origin/NEW_MODULE_C
     }
     
     /**
      * Take the previously saved snapshot of Minimap background and draw it.
      */
     public void drawBackgroundOfMiniMap(){
+<<<<<<< HEAD
         this.minimap.clear();
         this.minimap.drawImg("miniview_snapshot", 0, 0, minimap.getWidth(), minimap.getHeight(), 0);
+=======
+        throw new UnsupportedOperationException("not impelemented");
+    }
+    
+    /**
+     * Return the team info of the opponent team
+     * @param myteam
+     * @return 
+     */
+    public TeamInfo getEnemyTeamInfo(Team myteam){
+        if(myteam==this.arrTeams.get(0)){
+            return this.arrTeams.get(1).getTeamInfo();
+        }else{
+            return this.arrTeams.get(0).getTeamInfo();
+        }
+    }
+    
+    /**
+     * Approve if to allow propser to move to rectangle. Lefttop and width and height are provided
+     * Algorithm: call getArrSprites to get all colliding with rectangle, and then get the altitude and blocking score to decide.
+     * @param proposer
+     * @param lefttop_corner
+     * @param w
+     * @param y
+     * @return 
+     */
+    public boolean approveNextMove(Sprite proposer, Point lefttop_corner, int width, int height){
+        ArrayList<Sprite> arr = this.getArrSprites(lefttop_corner, new Point(lefttop_corner.x+width, lefttop_corner.y+height), null);
+        for(Sprite sp: arr){
+            if(sp!=proposer){
+                if(sp.getAltitude()==proposer.getAltitude()){
+                    if(sp.getBlockingScore()>=proposer.getBlockingScore()){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
+    HashMap<Point,int[][]> mapstore = new HashMap();
+    /**
+     * The int[][] cost matrix is generated in onRightClick() and saved into a hashmap.
+     * Now simply retrieve it from hashmap
+     * @param dest
+     * @return 
+     */
+    public int [][] getBFSMap(Point dest){
+        if(!mapstore.containsKey(dest)){
+            int [][] costMatrix = this.map.generateBFSMap(dest);
+            mapstore.put(dest, costMatrix);
+        }
+        int [][] cost = this.mapstore.get(dest);
+        return cost;
+>>>>>>> origin/NEW_MODULE_C
     }
     
 }

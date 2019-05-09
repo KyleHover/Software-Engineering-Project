@@ -21,7 +21,6 @@ import BridgePattern.ICanvasDevice;
 
 /**
  * Represents a button for creating units
- *
  * @author csc190
  */
 public class ShopButton {
@@ -52,6 +51,7 @@ public class ShopButton {
      * If it's in progress or Team has no money to pay, do not perform anything;
      * Otherwise call startTimer() to start the manufature process.
      */
+
     public void onClick() {
         if (this.tickLeft == 0) {
             if (this.team.PurchaseSprite(this.unitName)) {

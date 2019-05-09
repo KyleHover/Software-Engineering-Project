@@ -75,7 +75,6 @@ public class FXCanvasDevice implements ICanvasDevice {
             canvas.setCache(false);
         }
         //canvas.setCacheHint(CacheHint.SPEED);
-
     }
 
     protected GraphicsContext mygc = null;
@@ -162,6 +161,7 @@ public class FXCanvasDevice implements ICanvasDevice {
                 }
             }
         });
+
         this.canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -215,7 +215,6 @@ public class FXCanvasDevice implements ICanvasDevice {
 
     @Override
     public void drawLine(int x1, int y1, int x2, int y2) {
-
          GraphicsContext gc = this.canvas.getGraphicsContext2D();
          gc.strokeLine(x1, y1, x2, y2);
     }
@@ -230,7 +229,6 @@ public class FXCanvasDevice implements ICanvasDevice {
     @Override
     public void drawRectangle(int x, int y, int w, int h, String color) {
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
-        
         Color cColor = Color.web(color);
         gc.setFill(cColor);
         gc.fillRect(x, y, w, h);

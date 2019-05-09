@@ -21,12 +21,14 @@ import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import java.util.ArrayList;
 import javafx.scene.canvas.GraphicsContext;
+import java.util.Random;
 
 /**
  * Represents the Palette of buttons for creating units
+ *
  * @author csc190
  */
-public class ButtonController implements IGameEngine{
+public class ButtonController implements IGameEngine {
     //---- DATA MEMBERS ------------------
     protected ArrayList<ShopButton> arrButtons;
     protected Team myteam;
@@ -102,5 +104,61 @@ public class ButtonController implements IGameEngine{
     @Override
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    protected Point genRandomLoc() {
+        Random rand = new Random();
+        int x = this.myteam.getBase().getX();
+        int y = this.myteam.getBase().getY();
+        if (rand.nextBoolean()) {
+            x = x + rand.nextInt(600);
+            y = y + rand.nextInt(600);
+        } else {
+            x = x - rand.nextInt(600);
+            y = y - rand.nextInt(600);
+        }
+        return new Point(x, y);
+    }
+
+    /**
+     * return true if there's money for it
+     */
+    public boolean spawnTank() {
+        if (!this.myteam.PurchaseSprite("TANK")) {
+            return false;
+        }
+        Point pt = this.genRandomLoc();
+        Tank tank = new Tank(this.myteam, pt.x, pt.y, 50, 50);
+        GameEngine.getInstance().addSprite(tank);
+        this.myteam.addSprite(tank);
+        return true;
+    }
+
+    /**
+     * return true if there's money for it
+     */
+    public boolean spawnAircraft() {
+        if (!this.myteam.PurchaseSprite("PLANE")) {
+            return false;
+        }
+        Point pt = this.genRandomLoc();
+        Airplane plane = new Airplane(this.myteam, pt.x, pt.y, 50, 50);
+        GameEngine.getInstance().addSprite(plane);
+        this.myteam.addSprite(plane);
+        return true;
+    }
+
+    /**
+     * return true if there's money for it
+     */
+    public boolean spawnInfantry() {
+        if (!this.myteam.PurchaseSprite("INFANTRY")) {
+            return false;
+        }
+        Point pt = this.genRandomLoc();
+        Infantry soldier = new Infantry(this.myteam, pt.x, pt.y, 25, 25);
+        GameEngine.getInstance().addSprite(soldier);
+        this.myteam.addSprite(soldier);
+        return true;
     }
 }

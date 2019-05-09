@@ -19,6 +19,7 @@ package BridgePattern;
 
 import EvilCraft.Map;
 import EvilCraft.Point;
+
 /**
  * An abstract game engine. It should support several event handler function for
  * the events fired by the canvas devices

@@ -56,12 +56,14 @@ public interface ICanvasDevice {
     
     /**
      * Get its x coordinate in logical map.
+     * Get the x coordinate (map coordinate) in map
      * @return 
      */
     public int getX();
     
     /**
      * Get its y coordinate in logical map
+     * Get the y coordinate (map coordinate) in map
      * @return 
      */
     public int getY();
@@ -110,7 +112,7 @@ public interface ICanvasDevice {
      * @param fontsize 
      */
 
-    public  void drawText(String msg, int x, int y, int fontsize);
+    public void drawText(String msg, int x, int y, int fontsize);
 
     /**
      * Draw a line from (x1,y1) to (x2,y2)
@@ -119,9 +121,8 @@ public interface ICanvasDevice {
      * @param x2
      * @param y2 
      */
-
-    public  void drawLine(int x1, int y1, int x2, int y2);
-
+    
+    public void drawLine(int x1, int y1, int x2, int y2);
     
     /**
      * Draw a rectangle of a given color. Color can be hex string like "#FF0000" for red

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 /**
  * Represent the object of Mouse. Display mouse shapes at different situation
+<<<<<<< HEAD
  *
  * @author csc190
  */
@@ -39,11 +40,20 @@ public class MouseSprite extends Sprite {
     protected String pic = null;
     protected ICanvasDevice mainview;
     protected ICanvasDevice minimap;
-
-    public MouseSprite(ICanvasDevice mainview, ICanvasDevice minimap) {
-        super(null, 0, 0, 0, 0);
+    protected Map map;
+    
+    /**
+     * MouseSprite needs the dimension of mainview, minimap, and map to translate coordinates.
+     * It also uses 
+     * @param mainview
+     * @param minimap
+     * @param map 
+     */
+    public MouseSprite(ICanvasDevice mainview, ICanvasDevice minimap, Map map) {
+        super(null, 0, 0, 0, 0, Integer.MAX_VALUE, 3, Integer.MAX_VALUE);
         this.mainview = mainview;
         this.minimap = minimap;
+        this.map = map;
     }
 
     /**
@@ -54,7 +64,6 @@ public class MouseSprite extends Sprite {
      * "Arrow" mode. Arrow direction depending on location in canvas (3)
      * LeftClick: set the state to no units selected so that even Mouse Move, it
      * will not show "Move" or "Attack" mode
-     *
      * @param eventType
      * @param canvas
      * @param x
@@ -156,4 +165,19 @@ public class MouseSprite extends Sprite {
         //do nothing
     }
 
+    @Override
+    public Point getNextMove() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFacing(Point pt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void adjustBodyHeading(Point pt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

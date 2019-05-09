@@ -43,11 +43,24 @@ public class Team {
         this.base = base;
     }
     
+
+    private int getPrice(String sprite){
+        if(sprite.equals("TANK")){
+            return 500;
+        }else if(sprite.equals("INFANTRY")){
+            return 100;
+        }else if(sprite.equals("PLANE")){
+            return 1000;
+        }
+        return 100000000;
+    }
+    
     /**
      * Return false if cannot afford. Otherwise, adjust the cash correspondingly
      * @param spriteName
      * @return 
      */
+
     protected static String [] units = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
     protected int [] costs = new int [] {100, 500, 1000};
     public boolean PurchaseSprite(String spriteName){
@@ -73,4 +86,19 @@ public class Team {
     public void addSprite(Sprite sprite){
         this.arrSprites.add(sprite);
     }
+
+    public ArrayList<Sprite> getSprites(){       
+        return this.arrSprites;   
+    }
+    
+    protected TeamInfo getTeamInfo(){
+        SpriteInfo binfo = this.getBase().getSpriteInfo();
+        ArrayList<SpriteInfo> arrInfo = new ArrayList<SpriteInfo>();
+        for(int i=0; i<this.arrSprites.size(); i++){
+            arrInfo.add(this.arrSprites.get(i).getSpriteInfo());
+        }
+        TeamInfo ti = new TeamInfo(binfo, arrInfo);
+        return ti;
+    }
+
 }

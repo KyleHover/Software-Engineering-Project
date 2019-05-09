@@ -23,21 +23,29 @@ import BridgePattern.ICanvasDevice;
  *
  * @author csc190
  */
-public class Airplane extends Sprite {
 
-    protected String pic = "resources/images/team_red/plane/plane.png";
+public class Airplane extends Sprite{
+    protected int degree;
+    protected String picpath;
 
     public Airplane(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
+        super(team, x, y, w, h, 40, 1, 1);
+        if(team==GameEngine.getInstance().getAITeam()){
+            picpath = "resources/images/team_yellow/plane/plane.png";
+        }else{
+             picpath = "resources/images/team_red/plane/plane.png";
+        }
+
     }
 
     @Override
     public void update() {
+
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-        mainview.drawImg(pic, x, y, w, h, 0);
+        mainview.drawImg(picpath, this.getX(), this.getY(), this.getW(), this.getH(), this.degree);
     }
 
     @Override
@@ -45,7 +53,27 @@ public class Airplane extends Sprite {
         int mw = GameEngine.getInstance().map.getNumRows() * 100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human") >= 0 ? "#FF0000" : "#0000FF";
-        minimap.drawRectangle(x * vw / mw, y * vw / mw, w * vw / mw, h * vw / mw, color);
+        minimap.drawRectangle(x * vw / mw, y * vw / mw, w * vw / mw, h * vw / mw, color); 
     }
 
+    @Override
+    public Point getNextMove() {
+        
+        if(this.navigationGoal!=null){
+            int x = this.getX()<navigationGoal.x? this.getX()+2: this.getX()-2;
+            int y = this.getY()<navigationGoal.y? this.getY()+2: this.getY()-2;
+            return new Point(x,y);
+        }else{
+            return new Point(this.getX(), this.getY());
+        }
+    }
+
+    @Override
+    public boolean isFacing(Point pt) {
+        return true;
+    }
+
+    @Override
+    public void adjustBodyHeading(Point pt){   
+    }
 }

@@ -25,26 +25,65 @@ import BridgePattern.ICanvasDevice;
  */
 public class Infantry extends Sprite{
 
+<<<<<<< HEAD
     protected String pic = "resources/images/team_red/infantry/infantry.png";
     public Infantry(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h);
+=======
+    protected String pic;
+    public Infantry(Team team, int x, int y, int w, int h) {
+        super(team, x, y, w, h, 20, 0, 0);
+        pic = this.team==GameEngine.getInstance().getPlayerTeam()?
+                "resources/images/team_red/infantry/infantry.png":
+                "resources/images/team_yellow/infantry/infantry.png";
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void update() {
+<<<<<<< HEAD
         
+=======
+       
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
+<<<<<<< HEAD
        mainview.drawImg(pic, x, y, w, h, 0);
+=======
+         mainview.drawImg(pic, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), 0);
+        
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
+<<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
         minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
     }    
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point getNextMove() {
+        return this.defaultGetNextMove(3);
+    }
+
+    @Override
+    public boolean isFacing(Point pt) {
+       return true;
+    }
+
+    @Override
+    public void adjustBodyHeading(Point pt) {
+        //do nothing
+    }
+    
+>>>>>>> origin/NEW_MODULE_C
 }

@@ -27,4 +27,21 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+
+    @Override
+    public boolean equals(Object others){
+        if(!(others instanceof Point)){
+            return false;
+        }
+        Point pother = (Point) others;
+        return pother.x==x && pother.y==y;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + this.x;
+        hash = 41 * hash + this.y;
+        return hash;
+    }
 }
