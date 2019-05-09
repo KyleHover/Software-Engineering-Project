@@ -172,12 +172,9 @@ public class GameEngineMS3 extends EvilCraftGameEngine {
         this.viewportY = y;
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
->>>>>>> origin/NEW_MODULE_B
 }
