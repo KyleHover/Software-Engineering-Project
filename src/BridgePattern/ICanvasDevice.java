@@ -112,8 +112,6 @@ public interface ICanvasDevice {
 
     public  void drawText(String msg, int x, int y, int fontsize);
 
-
-    
     /**
      * Draw a line from (x1,y1) to (x2,y2)
      * @param x1
