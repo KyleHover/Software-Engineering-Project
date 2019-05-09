@@ -28,10 +28,6 @@ public abstract class Sprite {
     protected int x, y, w, h;
     protected Team team;
     protected boolean bDead = false;
-<<<<<<< HEAD
-    
-    //------- OPERATIONS -------------
-=======
     protected Sprite attackGoal = null;
     protected Point navigationGoal = null;
     
@@ -51,7 +47,7 @@ public abstract class Sprite {
     public void setAttackGoal(Sprite sp){
         this.attackGoal = sp;
     }
->>>>>>> origin/NEW_MODULE_B
+    
     public void setDead(){
         this.bDead = true;
     }
