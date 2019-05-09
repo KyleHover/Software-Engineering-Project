@@ -17,12 +17,8 @@
  */
 package BridgePattern;
 
-<<<<<<< HEAD
-=======
 import EvilCraft.Map;
 import EvilCraft.Point;
-
->>>>>>> origin/NEW_MODULE_B
 /**
  * An abstract game engine. It should support several event handler function for
  * the events fired by the canvas devices
@@ -59,8 +55,6 @@ public interface IGameEngine {
      */
     public void onLeftClick(ICanvasDevice canvas, int x, int y);
     
-<<<<<<< HEAD
-=======
     /**
      * Handles the mouse move event
      * @param canvas - the canvas which generates the event
@@ -69,7 +63,6 @@ public interface IGameEngine {
      */
     public void onMouseMoved(ICanvasDevice canvas, int x, int y);
     
->>>>>>> origin/NEW_MODULE_B
     
     /**
      * Handles the mouse drag and then release event. This operation may be substituted by finger ops on mobile devices.
@@ -80,11 +73,6 @@ public interface IGameEngine {
      * @param x2 - x coordinate of the DRAG_END event IN the canvas device. 
      * @param y2 - y coordinate of the DRAG_END event IN the canvas device
      */
-<<<<<<< HEAD
-    public void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2);
-=======
     public abstract void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2);
-    
->>>>>>> origin/NEW_MODULE_B
     
 }
