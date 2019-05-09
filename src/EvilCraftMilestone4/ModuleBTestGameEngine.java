@@ -20,14 +20,10 @@ package EvilCraftMilestone4;
 import BridgePattern.ICanvasDevice;
 import BridgePattern.ISoundDevice;
 import EvilCraft.GameEngine;
-<<<<<<< HEAD
 import EvilCraft.Infantry;
-import EvilCraft.Tank;
-=======
 import EvilCraft.Point;
 import EvilCraft.Tank;
 import EvilCraft.Team;
->>>>>>> origin/NEW_MODULE_C
 
 /**
  *
@@ -39,7 +35,6 @@ public class ModuleBTestGameEngine extends GameEngine{
         super(mapPath, mainview, minimap, factoryPanel, sound);
     }
     
-<<<<<<< HEAD
     @Override
     public void init(){
         super.init();
@@ -60,7 +55,5 @@ public class ModuleBTestGameEngine extends GameEngine{
         
         
     }
-=======
->>>>>>> origin/NEW_MODULE_C
     
 }

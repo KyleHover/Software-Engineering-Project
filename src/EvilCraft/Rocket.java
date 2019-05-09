@@ -25,13 +25,8 @@ import BridgePattern.ICanvasDevice;
  */
 public class Rocket extends Sprite {
 
-<<<<<<< HEAD
-    public Rocket(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
-=======
     public Rocket(Team team, int x, int y, int w, int h, int lifepoints) {
         super(team, x, y, w, h, lifepoints, 0, 0);
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
@@ -48,8 +43,6 @@ public class Rocket extends Sprite {
     public void drawOnMiniMap(ICanvasDevice minimap) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public Point getNextMove() {
@@ -64,7 +57,5 @@ public class Rocket extends Sprite {
     @Override
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
->>>>>>> origin/NEW_MODULE_C
-    
+    }    
 }

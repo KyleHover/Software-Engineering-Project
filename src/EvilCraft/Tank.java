@@ -23,13 +23,6 @@ import BridgePattern.ICanvasDevice;
  *
  * @author csc190
  */
-<<<<<<< HEAD
-public class Tank extends Sprite{
-
-    protected String pic = "resources/images/team_red/tank/body.png";
-    public Tank(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
-=======
 public class Tank extends Sprite {
 
     protected String body = "resources/images/team_red/tank/body.png";
@@ -42,12 +35,10 @@ public class Tank extends Sprite {
         GameEngine ge = GameEngine.getInstance();
         body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";
         gun = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/gun.png": "resources/images/team_yellow/tank/gun.png";
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void update() {
-<<<<<<< HEAD
         if(this.navigationGoal!=null){
             if(this.x<navigationGoal.x){
                 x++;
@@ -60,32 +51,20 @@ public class Tank extends Sprite {
                 y--;
             }
         }        
-=======
-
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-        mainview.drawImg(pic, x, y, w, h, 0);
-=======
         mainview.drawImg(body, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), body_degree);
         mainview.drawImg(gun, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), gun_degree);
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
-<<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
         minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
-    }
-    
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -114,6 +93,4 @@ public class Tank extends Sprite {
         }
         this.body_degree = (this.body_degree+360)%360;
     }
-
->>>>>>> origin/NEW_MODULE_C
 }
