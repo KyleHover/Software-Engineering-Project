@@ -61,6 +61,7 @@ public class ButtonController implements IGameEngine {
     
     @Override
     public void init() {
+        //do nothing
     }
 
     /**

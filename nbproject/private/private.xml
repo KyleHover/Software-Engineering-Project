@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/csc190/Desktop/evilcraft_ms6/EvilCraft_MS6/src/EvilCraftMilestone4/TestCase3GameEngine.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraft/AI.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraft/SpriteInfo.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraftMilestone4/MainAppMS4.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraft/Team.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraft/ButtonController.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraft/GameEngine.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraft/Sprite.java</file>
+            <file>file:/home/csc190/Desktop/csc190/Milestone6/src/EvilCraft/MouseSprite.java</file>
         </group>
     </open-files>
 </project-private>

@@ -29,7 +29,7 @@ public abstract class Sprite {
     protected int x, y, w, h;
     protected Team team;
     protected boolean bDead = false;
-    protected Sprite attackGoal = null;
+    protected String attackGoal = null;
     protected Point navigationGoal = null;
     private int altitude, blocking_score;
     private int lifepoints;
@@ -62,7 +62,7 @@ public abstract class Sprite {
      * Set the PRIORITY attack goal. If sp is in the range, it should be attacked first.
      * @param sp 
      */
-    public void setAttackGoal(Sprite sp){
+    public void setAttackGoal(String sp){
         this.attackGoal = sp;
     }
     
