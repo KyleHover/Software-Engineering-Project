@@ -39,13 +39,8 @@ public class GameEngine implements IGameEngine{
     protected ArrayList<StaticObject> arrMapTiles = new ArrayList<StaticObject>();
     protected ArrayList<Team> arrTeams = new ArrayList<Team>();
     protected ButtonController humanController;
-<<<<<<< HEAD
-=======
     protected ArrayList<Sprite> arrSelected = null;
     protected MouseSprite mouseSprite = null;
-
->>>>>>> origin/NEW_MODULE_B
-    
     protected boolean [][] taken;
     //---------------- OPERATIONS ------------------
     /**
@@ -68,12 +63,8 @@ public class GameEngine implements IGameEngine{
         this.arrTeams.add(team1);
         this.arrTeams.add(team2);
         this.loadGameMap(mapPath);
-<<<<<<< HEAD
-        
-=======
         this.mouseSprite = new MouseSprite(this.mainview, this.minimap);
->>>>>>> origin/NEW_MODULE_B
-        
+        /*
         
         //TEMPORARY
         taken = new boolean [20][];
@@ -83,7 +74,7 @@ public class GameEngine implements IGameEngine{
                 taken[i][j] = false;
             }
         }
-        //TEMPORARY REMOVE ABOVE
+        //TEMPORARY REMOVE ABOVE*/
         ge_instance = this;
     }
     
@@ -94,65 +85,44 @@ public class GameEngine implements IGameEngine{
 
     @Override
     public void init() {
-        //DON'T KILL THE following line
-<<<<<<< HEAD
         //set up the ButtonController
         humanController = new ButtonController(this.arrTeams.get(0), this.buttonCanvas);
         this.mainview.setupEventHandler(this);
-=======
-        //set up the ButtonController        
-        this.mainview.setupEventHandler(this);
+
         this.minimap.setupEventHandler(this);
         for(Sprite sp: this.arrMapTiles){
             sp.drawOnMiniMap(minimap);
         }
         this.createBackground();
->>>>>>> origin/NEW_MODULE_B
+        //DON'T KILL THE following line
         ge_instance  = this;
-        
         //DON'T KILL THE ABOVE LINE
     }
 
     @Override
     public void onTick() {
-<<<<<<< HEAD
-        for(int i=0; i<this.arrMapTiles.size(); i++){
-            this.arrMapTiles.get(i).drawOnMainView(mainview);
-        }
-=======
         this.mainview.clear();
         this.minimap.clear();
         for(int i=0; i<this.arrMapTiles.size(); i++){
             this.arrMapTiles.get(i).drawOnMainView(mainview);
         }
         this.drawBackgroundOfMiniMap();
->>>>>>> origin/NEW_MODULE_B
         for(int i=0; i<this.arrSprites.size(); i++){
             this.arrSprites.get(i).update();
             this.arrSprites.get(i).drawOnMainView(mainview);
             this.arrSprites.get(i).drawOnMiniMap(minimap);
         }
-<<<<<<< HEAD
+        this.mouseSprite.update();
+        this.mouseSprite.drawOnMainView(mainview);
         Team winner = this.CheckWinner();
         if(winner!=null){
             this.endGame(winner);
         }
-        
         this.humanController.onTick();
-=======
-        
-        this.mouseSprite.update();
-        this.mouseSprite.drawOnMainView(mainview);
-        
-        
-        
->>>>>>> origin/NEW_MODULE_B
     }
 
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
-<<<<<<< HEAD
-=======
         Point pt = this.getGlobalCoordinates(canvas, x, y, map);
         Point pt1 = new Point(pt.x-25, pt.y-25);
         Point pt2 = new Point(pt.x+25, pt.y+25);
@@ -164,34 +134,24 @@ public class GameEngine implements IGameEngine{
                 sprite.setAttackGoal(target);
             }
         }
-        this.mouseSprite.handleEvnet(MouseEvent.RightClick, canvas, x, y, this.arrSelected);
->>>>>>> origin/NEW_MODULE_B
-        
+        this.mouseSprite.handleEvnet(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
     }
 
     @Override
     public void onLeftClick(ICanvasDevice canvas, int x, int y) {
-<<<<<<< HEAD
-        
-=======
         this.arrSelected = null;
         if(canvas==this.minimap){
             Point pt = this.getGlobalCoordinates(canvas, x, y, map);
             this.mainview.setViewPort(pt.x-mainview.getWidth()/2, pt.y-mainview.getHeight()/2);
         }
         this.mouseSprite.handleEvnet(MouseEvent.LeftClick, canvas, x, y, null);
->>>>>>> origin/NEW_MODULE_B
     }
 
     @Override
     public void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2) {
-<<<<<<< HEAD
-        
-=======
         Point pt1 = this.getGlobalCoordinates(canvas, x1, y1, map);
         Point pt2 = this.getGlobalCoordinates(canvas, x2, y2, map);
         this.arrSelected = this.getArrSprites(pt1, pt2, this.getPlayerTeam());
->>>>>>> origin/NEW_MODULE_B
     }
     
     /**
@@ -201,11 +161,7 @@ public class GameEngine implements IGameEngine{
      */
     public void loadGameMap(String mapPath){
         this.mapPath = mapPath;
-<<<<<<< HEAD
-        this.map = new Map(mapPath);
-=======
         this.map = new Map(mapPath, this.mainview);
->>>>>>> origin/NEW_MODULE_B
         for(int i=0; i<map.getNumRows(); i++){
             for(int j=0; j<map.getNumCols(); j++){
                 String maptile = this.map.getMapTile(i, j);
@@ -238,7 +194,6 @@ public class GameEngine implements IGameEngine{
      */
     
     public Point getFreeSpace(int x, int y, int w, int h){
-<<<<<<< HEAD
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){
                 if(!taken[i][j]){
@@ -251,10 +206,7 @@ public class GameEngine implements IGameEngine{
                 }
             }
         }
-=======
-        
->>>>>>> origin/NEW_MODULE_B
-        throw new UnsupportedOperationException("not implemented yet!");
+        return null;
     }
     
     public void addSprite(Sprite s){
@@ -270,7 +222,6 @@ public class GameEngine implements IGameEngine{
      * @return 
      */
     public Team CheckWinner(){
-<<<<<<< HEAD
         for(int i=0; i<=1; i++){
             Team team = this.arrTeams.get(i);
             if(team.getBase().isDead()){
@@ -278,10 +229,6 @@ public class GameEngine implements IGameEngine{
             }
         }
         return null;
-=======
-        
-        throw new UnsupportedOperationException("not implemented");  
->>>>>>> origin/NEW_MODULE_B
     }
     
     /**
@@ -289,11 +236,8 @@ public class GameEngine implements IGameEngine{
      * @param winner 
      */
     public void endGame(Team winner){
-<<<<<<< HEAD
         String msg = winner.getName().equals("Human")? "You Win!": "You Lose";
-        this.mainview.drawText(msg, 400, 400, 20);
-=======
-     throw new UnsupportedOperationException("not implemented");  
+        this.mainview.drawText(msg, 400, 400, 20); 
     }
 
     /**
@@ -404,7 +348,6 @@ public class GameEngine implements IGameEngine{
     public void drawBackgroundOfMiniMap(){
         this.minimap.clear();
         this.minimap.drawImg("miniview_snapshot", 0, 0, minimap.getWidth(), minimap.getHeight(), 0);
->>>>>>> origin/NEW_MODULE_B
     }
     
 }
