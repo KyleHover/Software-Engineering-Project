@@ -49,7 +49,7 @@ public class MouseSprite extends Sprite {
      * @param minimap
      * @param map 
      */
-    public MouseSprite(ICanvasDevice mainview, ICanvasDevice minimap, Map map) {
+    public MouseSprite(ICanvasDevice mainview, ICanvasDevice minimap) {
         super(null, 0, 0, 0, 0, Integer.MAX_VALUE, 3, Integer.MAX_VALUE);
         this.mainview = mainview;
         this.minimap = minimap;

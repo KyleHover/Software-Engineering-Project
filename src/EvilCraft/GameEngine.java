@@ -22,6 +22,7 @@ import BridgePattern.IGameEngine;
 import BridgePattern.ISoundDevice;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 
 
@@ -90,20 +91,18 @@ public class GameEngine implements IGameEngine{
 
     @Override
     public void init() {
-        this.mouseSprite = new MouseSprite(mainview, minimap, map);
+        this.mouseSprite = new MouseSprite(mainview, minimap);
         this.mainview.setupEventHandler(this);
         this.loadGameMap(this.mapPath);
-        humanController = new ButtonController(this.arrTeams.get(0), this.buttonCanvas);
+        this.humanController = new ButtonController(this.arrTeams.get(0), this.buttonCanvas);
         this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
         this.ai = new AI(this.getAITeam(), this.aiButtonController);
         this.minimap.setupEventHandler(this);
         for(Sprite sp: this.arrMapTiles){
+            sp.drawOnMainView(mainview);
             sp.drawOnMiniMap(minimap);
         }
-        this.createBackground();
-    //}
-        
-        
+        this.createBackground();        
         //DON'T KILL THE following line
         ge_instance  = this;
         //DON'T KILL THE ABOVE LINE
@@ -124,16 +123,10 @@ public class GameEngine implements IGameEngine{
             sp.update();
             sp.setNextMove();
             sp.drawOnMainView(mainview);
+            sp.drawOnMiniMap(minimap);
         }
-        this.ai.update();
-
-        
+        this.ai.update();   
         this.drawBackgroundOfMiniMap();
-        for(int i=0; i<this.arrSprites.size(); i++){
-            this.arrSprites.get(i).update();
-            this.arrSprites.get(i).drawOnMainView(mainview);
-            this.arrSprites.get(i).drawOnMiniMap(minimap);
-        }
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
         Team winner = this.CheckWinner();
@@ -182,27 +175,6 @@ public class GameEngine implements IGameEngine{
      * @param mapPath 
      */
     public void loadGameMap(String mapPath){
-<<<<<<< HEAD
-        this.mapPath = mapPath;
-        this.map = new Map(mapPath, this.mainview);
-        for(int i=0; i<map.getNumRows(); i++){
-            for(int j=0; j<map.getNumCols(); j++){
-                String maptile = this.map.getMapTile(i, j);
-               
-                if(maptile.equals("b1")){
-                    Base b1 = new Base(this.arrTeams.get(0), j*100, i*100, 100, 100, maptile);
-                    this.arrTeams.get(0).setBase(b1);
-                    this.arrMapTiles.add(b1);
-                }else if(maptile.equals("b2")){
-                    Base b2 = new Base(this.arrTeams.get(1), j*100, i*100, 100, 100, maptile);
-                    this.arrTeams.get(1).setBase(b2);
-                    this.arrMapTiles.add(b2);
-                }else{
-                    StaticObject s1 = new StaticObject(null, j*100, i*100, 100, 100, maptile);
-                     this.arrMapTiles.add(s1);
-                }
-                
-=======
         this.map = new Map(mapPath, mainview);
         for(int i=0; i<map.getNumCols(); i++){
             for(int j=0; j<map.getNumCols(); j++){
@@ -217,9 +189,7 @@ public class GameEngine implements IGameEngine{
                 }else{
                     so = new StaticObject(null, j*100, i*100, 100, 100, tile, 10000);
                 }
-                
                 this.arrMapTiles.add(so);
->>>>>>> origin/NEW_MODULE_C
             }
         }
     }
@@ -342,7 +312,6 @@ public class GameEngine implements IGameEngine{
      * @return 
      */
     public ArrayList<Sprite> getArrSprites(Point pt1, Point pt2, Team team){
-<<<<<<< HEAD
          //slow version
          ArrayList<Sprite> toRet = new ArrayList<Sprite>();
          for(int i=0; i<this.arrSprites.size(); i++){
@@ -362,16 +331,6 @@ public class GameEngine implements IGameEngine{
              }
          }
          return toRet;
-=======
-         ArrayList<Sprite> ret = new ArrayList<Sprite>();
-         for(int i=0; i<this.arrSprites.size(); i++){
-             Sprite s = arrSprites.get(i);
-             if(isCollide(pt1.x, pt1.y, pt2.x-pt1.x, pt2.y-pt1.y, s.getX(), s.getY(), s.getW(), s.getH())){
-                 ret.add(s);
-             }
-         }
-         return ret;
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override

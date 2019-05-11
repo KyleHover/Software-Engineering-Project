@@ -56,7 +56,10 @@ public class ButtonController implements IGameEngine {
             ShopButton button = new ShopButton(myteam, arrTypes[i], 100, paths[i], 0, y, 200, 100);
             this.arrButtons.add(button);
         }
-        this.canvas.setupEventHandler(this);
+        if (this.canvas == null){
+        } else{
+            this.canvas.setupEventHandler(this);  
+        }
     }
     
     @Override

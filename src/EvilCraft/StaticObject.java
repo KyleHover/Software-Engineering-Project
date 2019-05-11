@@ -60,7 +60,7 @@ public class StaticObject extends Sprite {
     public void drawOnMiniMap(ICanvasDevice minimap) {
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = 200;
-        minimap.drawImg(path, x*200/mw, y*200/mw, w*200/mw+1, h*200/mw+1, 0);
+        minimap.drawImg(path, getX()*200/mw, getY()*200/mw, getW()*200/mw+1, getH()*200/mw+1, 0);
     }
 
     @Override
