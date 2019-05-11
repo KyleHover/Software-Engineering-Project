@@ -98,10 +98,11 @@ public class GameEngine implements IGameEngine{
         this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
         this.ai = new AI(this.getAITeam(), this.aiButtonController);
         this.minimap.setupEventHandler(this);
+        /*
         for(Sprite sp: this.arrMapTiles){
-            sp.drawOnMainView(mainview);
             sp.drawOnMiniMap(minimap);
         }
+        */
         this.createBackground();        
         //DON'T KILL THE following line
         ge_instance  = this;
