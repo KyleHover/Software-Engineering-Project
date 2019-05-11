@@ -115,7 +115,7 @@ public class GameEngine implements IGameEngine{
         ticks++;
         this.mainview.clear();
         this.minimap.clear();
-        
+        this.drawBackgroundOfMiniMap();
         for(int i=0; i<this.arrMapTiles.size(); i++){
             this.arrMapTiles.get(i).drawOnMainView(mainview);
         }
@@ -127,7 +127,6 @@ public class GameEngine implements IGameEngine{
             sp.drawOnMiniMap(minimap);
         }
         this.ai.update();   
-        this.drawBackgroundOfMiniMap();
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
         Team winner = this.CheckWinner();
