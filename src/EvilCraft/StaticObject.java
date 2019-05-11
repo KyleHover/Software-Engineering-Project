@@ -53,18 +53,14 @@ public class StaticObject extends Sprite {
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-        mainview.drawImg(picname, x, y, w, h, 0);
-=======
         mainview.drawImg(path, this.getX(), this.getY(), this.getW(), this.getH(), 0);
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = 200;
-        minimap.drawImg(picname, x*200/mw, y*200/mw, w*200/mw+1, h*200/mw+1, 0);
+        minimap.drawImg(path, x*200/mw, y*200/mw, w*200/mw+1, h*200/mw+1, 0);
     }
 
     @Override
