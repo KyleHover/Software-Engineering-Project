@@ -25,11 +25,6 @@ import BridgePattern.ICanvasDevice;
  * @author csc190
  */
 public class Bullet extends Sprite{
-
-<<<<<<< HEAD
-    public Bullet(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
-=======
     /**
      * Note altitude decides if it hits units in sky or not
 =======
@@ -53,6 +48,7 @@ public class Bullet extends Projectile {
      */
     public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude) {
         super(team, x, y, w, h, lifepoints, altitude, 0);
+<<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
 =======
      * @param altitude
@@ -62,6 +58,8 @@ public class Bullet extends Projectile {
         this.setTravel(15);
         this.pic = "resources/images/common/bullet.png";
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
@@ -88,9 +86,12 @@ public class Bullet extends Projectile {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
     @Override
     public Point getNextMove() {
@@ -105,6 +106,7 @@ public class Bullet extends Projectile {
     @Override
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+<<<<<<< HEAD
     }
 <<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
@@ -112,4 +114,7 @@ public class Bullet extends Projectile {
 =======
 
 >>>>>>> origin/NEW_MODULE_D
+=======
+    }    
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

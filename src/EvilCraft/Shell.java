@@ -26,12 +26,9 @@ import BridgePattern.ICanvasDevice;
 <<<<<<< HEAD
 public class Shell extends Sprite{
 
-<<<<<<< HEAD
-    public Shell(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
-=======
     public Shell(Team team, int x, int y, int w, int h, int lifepoints) {
         super(team, x, y, w, h, lifepoints, 0, 0);
+<<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
 =======
 public class Shell extends Projectile{
@@ -42,6 +39,8 @@ public class Shell extends Projectile{
         this.setTravel(15);
          this.pic = "resources/images/common/shell.png";
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
@@ -68,9 +67,12 @@ public class Shell extends Projectile{
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
     @Override
     public Point getNextMove() {
@@ -87,8 +89,11 @@ public class Shell extends Projectile{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
 =======
 >>>>>>> origin/NEW_MODULE_D
     
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

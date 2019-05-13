@@ -29,12 +29,15 @@ import java.util.ArrayList;
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class Tank extends Sprite{
 
     protected String pic = "resources/images/team_red/tank/body.png";
     public Tank(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h);
 =======
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 public class Tank extends Sprite {
 
     protected String body = "resources/images/team_red/tank/body.png";
@@ -47,6 +50,7 @@ public class Tank extends Sprite {
         GameEngine ge = GameEngine.getInstance();
         body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";
         gun = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/gun.png": "resources/images/team_yellow/tank/gun.png";
+<<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
 =======
 public class Tank extends ArmyUnit {
@@ -63,12 +67,17 @@ public class Tank extends ArmyUnit {
         gun_pic = "resources/images/" + team_name + "/tank/gun.png";
         int k = 0;
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void update() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
         if(this.navigationGoal!=null){
             if(this.x<navigationGoal.x){
                 x++;
@@ -81,16 +90,20 @@ public class Tank extends ArmyUnit {
                 y--;
             }
         }        
+<<<<<<< HEAD
 =======
 
 >>>>>>> origin/NEW_MODULE_C
 =======
         super.update();
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         mainview.drawImg(pic, x, y, w, h, 0);
@@ -108,23 +121,33 @@ public class Tank extends ArmyUnit {
             }
         }
 >>>>>>> origin/NEW_MODULE_D
+=======
+        mainview.drawImg(body, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), body_degree);
+        mainview.drawImg(gun, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), gun_degree);
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
         minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
     }
+<<<<<<< HEAD
     
 =======
 =======
 >>>>>>> origin/NEW_MODULE_D
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
     @Override
     public Point getNextMove() {
@@ -161,6 +184,7 @@ public class Tank extends ArmyUnit {
         }
         this.body_degree = (this.body_degree+360)%360;
     }
+<<<<<<< HEAD
 
 >>>>>>> origin/NEW_MODULE_C
 =======
@@ -232,4 +256,6 @@ public class Tank extends ArmyUnit {
     }
 
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

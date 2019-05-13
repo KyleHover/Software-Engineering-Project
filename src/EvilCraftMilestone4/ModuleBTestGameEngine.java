@@ -22,15 +22,19 @@ import BridgePattern.ISoundDevice;
 import EvilCraft.GameEngine;
 <<<<<<< HEAD
 <<<<<<< HEAD
-import EvilCraft.Infantry;
-import EvilCraft.Tank;
+<<<<<<< HEAD
 =======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
+import EvilCraft.Infantry;
 import EvilCraft.Point;
 import EvilCraft.Tank;
 import EvilCraft.Team;
+<<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
 =======
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
 /**
  *
@@ -44,6 +48,9 @@ public class ModuleBTestGameEngine extends GameEngine{
     
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     @Override
     public void init(){
         super.init();
@@ -64,8 +71,6 @@ public class ModuleBTestGameEngine extends GameEngine{
         
         
     }
-=======
->>>>>>> origin/NEW_MODULE_C
     
 =======
 >>>>>>> origin/NEW_MODULE_D

@@ -66,10 +66,17 @@ public class ButtonController implements IGameEngine{
             ShopButton button = new ShopButton(myteam, arrTypes[i], 100, paths[i], 0, y, 200, 100);
             this.arrButtons.add(button);
         }
+<<<<<<< HEAD
         this.canvas.setupEventHandler(this);
 =======
         throw new UnsupportedOperationException("not implemented yet!");
 >>>>>>> origin/NEW_MODULE_D
+=======
+        if (this.canvas == null){
+        } else{
+            this.canvas.setupEventHandler(this);  
+        }
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
     
     @Override

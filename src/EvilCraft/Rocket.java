@@ -27,6 +27,7 @@ public class Rocket extends Sprite {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Rocket(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h);
 =======
@@ -37,6 +38,10 @@ public class Rocket extends Sprite {
     public Rocket(Team team, int x, int y, int w, int h, int lifepoints) {
         super(team, x, y, w, h, lifepoints, 0, 0);
 >>>>>>> origin/NEW_MODULE_D
+=======
+    public Rocket(Team team, int x, int y, int w, int h, int lifepoints) {
+        super(team, x, y, w, h, lifepoints, 0, 0);
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
@@ -55,9 +60,12 @@ public class Rocket extends Sprite {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/NEW_MODULE_D
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
     @Override
     public Point getNextMove() {
@@ -72,10 +80,14 @@ public class Rocket extends Sprite {
     @Override
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+<<<<<<< HEAD
     }
 <<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
 =======
 >>>>>>> origin/NEW_MODULE_D
     
+=======
+    }    
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

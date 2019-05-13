@@ -141,6 +141,7 @@ public class MainAppMS4 extends Application {
         //4. Create Test Scenario Buttons
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         GameEngine g1 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         GameEngine g2 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
@@ -150,12 +151,15 @@ public class MainAppMS4 extends Application {
         createButton("Test3", g3, vboxTestButtons);
 
 =======
+=======
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
         TestC1GameEngine1 g1 = new TestC1GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC1", g1, vboxTestButtons);
         TestC2GameEngine g2 = new TestC2GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC2", g2, vboxTestButtons);
         TestC3GameEngine g3 = new TestC3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC3", g3, vboxTestButtons);
+<<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
 =======
         TestD1GameEngine g1 = new TestD1GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
@@ -168,6 +172,9 @@ public class MainAppMS4 extends Application {
         createButton("TestNavigateAndShoot", g3, vboxTestButtons);
 >>>>>>> origin/NEW_MODULE_D
         
+=======
+ 
+>>>>>>> 0806c629882b57249f698f053304b006fc65143c
        
         
 
