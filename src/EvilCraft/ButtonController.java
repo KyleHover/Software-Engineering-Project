@@ -20,6 +20,7 @@ package EvilCraft;
 import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import javafx.scene.canvas.GraphicsContext;
 import java.util.Random;
 
@@ -29,6 +30,14 @@ import java.util.Random;
  * @author csc190
  */
 public class ButtonController implements IGameEngine {
+=======
+
+/**
+ * Represents the Palette of buttons for creating units
+ * @author csc190
+ */
+public class ButtonController implements IGameEngine{
+>>>>>>> origin/NEW_MODULE_D
     //---- DATA MEMBERS ------------------
     protected ArrayList<ShopButton> arrButtons;
     protected Team myteam;
@@ -41,6 +50,7 @@ public class ButtonController implements IGameEngine {
      * @param canvas 
      */
     public ButtonController(Team team, ICanvasDevice canvas){
+<<<<<<< HEAD
         this.myteam = team;
         this.canvas = canvas;
         String [] arrTypes = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
@@ -57,10 +67,17 @@ public class ButtonController implements IGameEngine {
             this.arrButtons.add(button);
         }
         this.canvas.setupEventHandler(this);
+=======
+        throw new UnsupportedOperationException("not implemented yet!");
+>>>>>>> origin/NEW_MODULE_D
     }
     
     @Override
     public void init() {
+<<<<<<< HEAD
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_D
     }
 
     /**
@@ -68,6 +85,7 @@ public class ButtonController implements IGameEngine {
      */
     @Override
     public void onTick() {
+<<<<<<< HEAD
         //1. draw the bank account
         String sCash = "$" + this.myteam.getCash();
         this.canvas.drawText(sCash, 10, 0, 20);
@@ -78,6 +96,9 @@ public class ButtonController implements IGameEngine {
             btn.update();
             btn.draw(canvas);
         }
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
@@ -87,6 +108,7 @@ public class ButtonController implements IGameEngine {
 
     @Override
     public void onLeftClick(ICanvasDevice canvas, int x, int y) {
+<<<<<<< HEAD
         if(y>=100){
             int idx = y/100-1;
             if(idx>=0 && idx<=2){
@@ -94,6 +116,9 @@ public class ButtonController implements IGameEngine {
                 btn.onClick();
             }
         }
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
@@ -105,6 +130,7 @@ public class ButtonController implements IGameEngine {
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+<<<<<<< HEAD
 
     protected Point genRandomLoc() {
         Random rand = new Random();
@@ -161,4 +187,28 @@ public class ButtonController implements IGameEngine {
         this.myteam.addSprite(soldier);
         return true;
     }
+=======
+   
+    /**
+     * return true if there's money for it
+     */
+    public boolean spawnTank(){
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+    
+    /**
+     * return true if there's money for it
+     */
+    public boolean spawnAircraft(){
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+    
+    /**
+     * return true if there's money for it
+     */
+    public boolean spawnInfantry(){
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+    
+>>>>>>> origin/NEW_MODULE_D
 }

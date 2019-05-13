@@ -18,11 +18,16 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> origin/NEW_MODULE_D
 
 /**
  *
  * @author csc190
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 public class Tank extends Sprite{
 
@@ -43,10 +48,26 @@ public class Tank extends Sprite {
         body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";
         gun = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/gun.png": "resources/images/team_yellow/tank/gun.png";
 >>>>>>> origin/NEW_MODULE_C
+=======
+public class Tank extends ArmyUnit {
+
+    protected int body_degree = 0;
+    protected int gun_degree = 0;
+    String body_pic;
+    String gun_pic;
+
+    public Tank(Team team, int x, int y, int w, int h) {
+        super(team, x, y, w, h, 300, 0, 2);
+        String team_name = team == GameEngine.getInstance().getPlayerTeam() ? "team_red" : "team_yellow";
+        body_pic = "resources/images/" + team_name + "/tank/body.png";
+        gun_pic = "resources/images/" + team_name + "/tank/gun.png";
+        int k = 0;
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void update() {
+<<<<<<< HEAD
 <<<<<<< HEAD
         if(this.navigationGoal!=null){
             if(this.x<navigationGoal.x){
@@ -63,20 +84,35 @@ public class Tank extends Sprite {
 =======
 
 >>>>>>> origin/NEW_MODULE_C
+=======
+        super.update();
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         mainview.drawImg(pic, x, y, w, h, 0);
 =======
         mainview.drawImg(body, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), body_degree);
         mainview.drawImg(gun, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), gun_degree);
 >>>>>>> origin/NEW_MODULE_C
+=======
+        if (this.idx_explode == -1) {
+            mainview.drawImg(body_pic, this.getX(), this.getY(), this.getW(), this.getH(), body_degree);
+            mainview.drawImg(gun_pic, this.getX(), this.getY(), this.getW(), this.getH(), gun_degree);
+        } else {
+            if (this.pic != null) {
+                mainview.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
+            }
+        }
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
@@ -85,21 +121,32 @@ public class Tank extends Sprite {
     }
     
 =======
+=======
+>>>>>>> origin/NEW_MODULE_D
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Point getNextMove() {
+<<<<<<< HEAD
         return this.defaultGetNextMove(5);
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public boolean isFacing(Point pt) {
+<<<<<<< HEAD
         return this.defaultIsFacing(body_degree, pt);
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void adjustBodyHeading(Point pt) {
+<<<<<<< HEAD
         float targetDegree = this.getAngle(new Point(this.getX(), this.getY()), pt);
         int iTargetDegree = (int) targetDegree;
         int diff = (iTargetDegree-this.body_degree+360)%360;
@@ -116,4 +163,73 @@ public class Tank extends Sprite {
     }
 
 >>>>>>> origin/NEW_MODULE_C
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void resetCoolRate() {
+        this.setCoolTicksNeeded(60);
+    }
+
+    @Override
+    public SpriteInfo getFiringGoal() {
+        //1. get the enemy in range
+        ArrayList<Sprite> ar = this.getEnemyInRange(100);
+        for (int i = 0; i < ar.size(); i++) {
+            SpriteInfo si = ar.get(i).getSpriteInfo();
+            if (si == this.attackGoal) {
+                return si;
+            }
+        }
+        for (int i = 0; i < ar.size(); i++) {
+            SpriteInfo si = ar.get(i).getSpriteInfo();
+             if (si.type == SpriteInfo.TYPE.TANK) {
+                return si;
+            }
+            if (si.type == SpriteInfo.TYPE.INFANTRY) {
+                return si;
+            }
+           
+            if (si.type == SpriteInfo.TYPE.BASE) {
+                return si;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean isGunFacing(Point goal) {
+        int degree = MyMath.getDegree(this.getX(), this.getY(), goal.x, goal.y);
+        int diff = degree - this.gun_degree;
+        return diff * diff <= 10;
+    }
+
+    @Override
+    public void adjustGunHeading(Point goal) {
+        int maxAdjust = 2; //5 degrees
+        int degree = MyMath.getDegree(this.getX(), this.getY(), goal.x, goal.y);
+        int diff = degree - this.gun_degree;
+        diff = (diff + 360) % 360;
+        if (diff > 180) {
+            //rotate left
+            diff = diff - 180;
+            int toTurn = diff <= maxAdjust ? diff : maxAdjust;
+            this.gun_degree -= toTurn;
+        } else {
+            int toTurn = diff <= maxAdjust ? diff : maxAdjust;
+            this.gun_degree += toTurn;
+        }
+        this.gun_degree = (this.gun_degree + 360) % 360;
+    }
+
+    @Override
+    public void fireAt(Point pt) {
+        Shell shell = new Shell(this.team, this.getX() + this.getW() / 2, this.getY() + this.getH() / 2, 10, 10, 100000, pt.x, pt.y);
+        GameEngine ge = GameEngine.getInstance();
+        ge.addSprite(shell);
+    }
+
+>>>>>>> origin/NEW_MODULE_D
 }

@@ -24,12 +24,17 @@ package EvilCraft;
 public class Base extends StaticObject{
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Base(Team team, int x, int y, int w, int h, String maptilename) {
         super(team, x, y, w, h, maptilename);
 =======
     public Base(Team team, int x, int y, int w, int h, String maptile) {
         super(team, x, y, w, h, maptile, 100);
 >>>>>>> origin/NEW_MODULE_C
+=======
+    public Base(Team team, int x, int y, int w, int h, String maptile) {
+        super(team, x, y, w, h, maptile, 100);
+>>>>>>> origin/NEW_MODULE_D
     }
     
 }

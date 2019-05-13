@@ -76,4 +76,8 @@ public interface IGameEngine {
      */
     public abstract void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2);
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> origin/NEW_MODULE_D
 }

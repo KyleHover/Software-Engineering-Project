@@ -21,6 +21,7 @@ import BridgePattern.ICanvasDevice;
 import BridgePattern.ISoundDevice;
 import EvilCraft.GameEngine;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import EvilCraft.Infantry;
 import EvilCraft.Tank;
 =======
@@ -28,6 +29,8 @@ import EvilCraft.Point;
 import EvilCraft.Tank;
 import EvilCraft.Team;
 >>>>>>> origin/NEW_MODULE_C
+=======
+>>>>>>> origin/NEW_MODULE_D
 
 /**
  *
@@ -39,6 +42,7 @@ public class ModuleBTestGameEngine extends GameEngine{
         super(mapPath, mainview, minimap, factoryPanel, sound);
     }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     @Override
     public void init(){
@@ -63,4 +67,6 @@ public class ModuleBTestGameEngine extends GameEngine{
 =======
 >>>>>>> origin/NEW_MODULE_C
     
+=======
+>>>>>>> origin/NEW_MODULE_D
 }

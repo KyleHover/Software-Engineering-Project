@@ -27,6 +27,7 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+<<<<<<< HEAD
 
     @Override
     public boolean equals(Object others){
@@ -44,4 +45,6 @@ public class Point {
         hash = 41 * hash + this.y;
         return hash;
     }
+=======
+>>>>>>> origin/NEW_MODULE_D
 }

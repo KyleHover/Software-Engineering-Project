@@ -171,16 +171,24 @@ public class GameTickEfficiency implements IGameEngine {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> origin/NEW_MODULE_C
+=======
+
+>>>>>>> origin/NEW_MODULE_D
     @Override
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> origin/NEW_MODULE_C
+=======
+
+>>>>>>> origin/NEW_MODULE_D
 }

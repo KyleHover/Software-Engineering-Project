@@ -23,6 +23,7 @@ import BridgePattern.ICanvasDevice;
  * Shells are fired by tanks
  * @author csc190
  */
+<<<<<<< HEAD
 public class Shell extends Sprite{
 
 <<<<<<< HEAD
@@ -32,16 +33,33 @@ public class Shell extends Sprite{
     public Shell(Team team, int x, int y, int w, int h, int lifepoints) {
         super(team, x, y, w, h, lifepoints, 0, 0);
 >>>>>>> origin/NEW_MODULE_C
+=======
+public class Shell extends Projectile{
+
+   
+    public Shell(Team team, int x, int y, int w, int h, int lifepoints, int destx, int desty) {
+        super(team, x, y, w, h, lifepoints, 1000, 0, destx, desty);
+        this.setTravel(15);
+         this.pic = "resources/images/common/shell.png";
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void update() {
+<<<<<<< HEAD
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        super.update();
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
+<<<<<<< HEAD
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        super.drawOnMainView(mainview);
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
@@ -49,7 +67,10 @@ public class Shell extends Sprite{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/NEW_MODULE_D
 
     @Override
     public Point getNextMove() {
@@ -65,6 +86,9 @@ public class Shell extends Sprite{
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+<<<<<<< HEAD
 >>>>>>> origin/NEW_MODULE_C
+=======
+>>>>>>> origin/NEW_MODULE_D
     
 }

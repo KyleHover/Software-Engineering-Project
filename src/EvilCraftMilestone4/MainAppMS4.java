@@ -140,6 +140,7 @@ public class MainAppMS4 extends Application {
         
         //4. Create Test Scenario Buttons
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         GameEngine g1 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         GameEngine g2 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
@@ -156,6 +157,16 @@ public class MainAppMS4 extends Application {
         TestC3GameEngine g3 = new TestC3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC3", g3, vboxTestButtons);
 >>>>>>> origin/NEW_MODULE_C
+=======
+        TestD1GameEngine g1 = new TestD1GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestDamageCoolRate", g1, vboxTestButtons);
+        
+        TestD2GameEngine1 g2 = new TestD2GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestRange", g2, vboxTestButtons);
+        
+         TestD3GameEngine g3 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestNavigateAndShoot", g3, vboxTestButtons);
+>>>>>>> origin/NEW_MODULE_D
         
        
         

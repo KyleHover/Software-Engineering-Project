@@ -17,8 +17,11 @@
  */
 package EvilCraft;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
+=======
+>>>>>>> origin/NEW_MODULE_D
 /**
  *
  * @author csc190
@@ -38,6 +41,7 @@ public class AI {
      * Called by GameEngine.onTick() for every 150 ticks.
      * Make decision based on enemy info
      */
+<<<<<<< HEAD
     protected int ticks = 0;
     public void update(){
         ticks++;
@@ -79,6 +83,10 @@ public class AI {
             sp.setNavigationGoal(new Point(ebase.x, ebase.y));
             sp.setAttackGoal(ebase.id);
         }
+=======
+    public void update(){
+        throw new UnsupportedOperationException("Not implemented yet!");
+>>>>>>> origin/NEW_MODULE_D
     }
     
 }

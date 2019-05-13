@@ -22,6 +22,7 @@ import BridgePattern.ICanvasDevice;
 /**
  * Represents a maptile
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @author csc190
  */
 public class StaticObject extends Sprite{
@@ -43,11 +44,21 @@ public class StaticObject extends Sprite {
      * *
      * Using maptile e.g., "tree", can be used to build the picture path
      *
+=======
+ * @author csc190
+ */
+public class StaticObject extends Sprite{
+    protected String pic;
+
+    /***
+     * Using maptile e.g., "tree", can be used to build the picture path
+>>>>>>> origin/NEW_MODULE_D
      * @param team
      * @param x
      * @param y
      * @param w
      * @param h
+<<<<<<< HEAD
      * @param maptile
      */
     protected String tile;
@@ -58,27 +69,43 @@ public class StaticObject extends Sprite {
         this.tile = maptile;
         this.path = "resources/images/common/" + maptile + ".png";
 >>>>>>> origin/NEW_MODULE_C
+=======
+     * @param maptile 
+     */
+    public StaticObject(Team team, int x, int y, int w, int h, String maptile, int lifepoints) {
+        super(team, x, y, w, h, lifepoints, 0, 0);
+        pic = "resources/images/common/" + maptile + ".png";
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void update() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         //do nothing
 =======
 >>>>>>> origin/NEW_MODULE_C
+=======
+        this.explode_ifenabled();
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         mainview.drawImg(picname, x, y, w, h, 0);
 =======
         mainview.drawImg(path, this.getX(), this.getY(), this.getW(), this.getH(), 0);
 >>>>>>> origin/NEW_MODULE_C
+=======
+        mainview.drawImg(this.pic,this.getX(), this.getY(), this.getW(), this.getH(), 0);
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = 200;
@@ -87,6 +114,9 @@ public class StaticObject extends Sprite {
     
 =======
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        //
+>>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
@@ -103,6 +133,10 @@ public class StaticObject extends Sprite {
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+<<<<<<< HEAD
 
 >>>>>>> origin/NEW_MODULE_C
+=======
+    
+>>>>>>> origin/NEW_MODULE_D
 }

@@ -23,41 +23,28 @@ import BridgePattern.ICanvasDevice;
  *
  * @author csc190
  */
-public class Rocket extends Sprite {
+public class Bomb extends Projectile{
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public Rocket(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
-=======
-    public Rocket(Team team, int x, int y, int w, int h, int lifepoints) {
-        super(team, x, y, w, h, lifepoints, 0, 0);
->>>>>>> origin/NEW_MODULE_C
-=======
-    public Rocket(Team team, int x, int y, int w, int h, int lifepoints) {
-        super(team, x, y, w, h, lifepoints, 0, 0);
->>>>>>> origin/NEW_MODULE_D
+    public Bomb(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int block_score, int destx, int desty) {
+        super(team, x, y, w, h, lifepoints, altitude, block_score, destx, desty);
+        this.setTravel(10);
+         this.pic = "resources/images/common/bomb.png";
     }
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super.update();
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super.drawOnMainView(mainview);
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/NEW_MODULE_D
 
     @Override
     public Point getNextMove() {
@@ -73,9 +60,5 @@ public class Rocket extends Sprite {
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
->>>>>>> origin/NEW_MODULE_C
-=======
->>>>>>> origin/NEW_MODULE_D
     
 }
