@@ -21,24 +21,15 @@ import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import BridgePattern.ISoundDevice;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
-
-=======
->>>>>>> origin/NEW_MODULE_D
 
 /**
  *
  * @author csc190
  */
-<<<<<<< HEAD
 public class GameEngine implements IGameEngine{
-=======
-public class GameEngine implements IGameEngine {
-
->>>>>>> origin/NEW_MODULE_D
     // -------------- DATA MEBERS ------------------
     protected String mapPath;
     protected Map map;
@@ -50,7 +41,6 @@ public class GameEngine implements IGameEngine {
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>(); //moving objects
     protected ArrayList<StaticObject> arrMapTiles = new ArrayList<StaticObject>();
     protected ArrayList<Team> arrTeams = new ArrayList<Team>();
-<<<<<<< HEAD
     protected ButtonController humanController;
     protected MouseSprite mouseSprite = null;
     protected boolean [][] taken;
@@ -76,21 +66,14 @@ public class GameEngine implements IGameEngine {
      * @param mainview
      * @param minimap
      * @param factoryPanel
-<<<<<<< HEAD
      * @param sound 
      */
     public GameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound){
-=======
-     * @param sound
-     */
-    public GameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound) {
->>>>>>> origin/NEW_MODULE_D
         this.mapPath = mapPath;
         this.mainview = mainview;
         this.minimap = minimap;
         this.buttonCanvas = factoryPanel;
         this.soundDevice = soundDevice;
-<<<<<<< HEAD
         Team team1 = new Team(10000, "Human");
         Team team2 = new Team(10000, "AI");
         this.arrTeams.add(team1);
@@ -112,25 +95,12 @@ public class GameEngine implements IGameEngine {
     }
     
     public static GameEngine getInstance(){
-=======
-
-        ge_instance = this;
-    }
-
-    public static GameEngine getInstance() {
-
->>>>>>> origin/NEW_MODULE_D
         return ge_instance;
     }
 
     @Override
     public void init() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        this.mouseSprite = new MouseSprite(mainview, minimap, map);
-=======
         this.mouseSprite = new MouseSprite(mainview, minimap);
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
         this.mainview.setupEventHandler(this);
         this.loadGameMap(this.mapPath);
         this.humanController = new ButtonController(this.arrTeams.get(0), this.buttonCanvas);
@@ -143,27 +113,10 @@ public class GameEngine implements IGameEngine {
         this.createBackground();        
         //DON'T KILL THE following line
         ge_instance  = this;
-=======
-        //DON'T KILL THE following line
-        ge_instance = this;
-        Team t1 = new Team(50000, "Player");
-        Team t2 = new Team(50000, "Computer");
-        this.arrTeams.add(t1);
-        this.arrTeams.add(t2);
->>>>>>> origin/NEW_MODULE_D
         //DON'T KILL THE ABOVE LINE
     }
 
-<<<<<<< HEAD
-    @Override
-    public void onTick() {
-<<<<<<< HEAD
-        
-=======
-        
 
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     protected int ticks = 0;
     @Override
     public void onTick() {
@@ -184,25 +137,6 @@ public class GameEngine implements IGameEngine {
         this.ai.update();   
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
-        Team winner = this.CheckWinner();
-        if(winner!=null){
-            this.endGame(winner);
-        }
-        this.humanController.onTick();
-=======
-        this.mainview.clear();
-        for(int i=0; i<this.arrMapTiles.size(); i++){
-            this.arrMapTiles.get(i).drawOnMainView(mainview);
-        }
-        for (int i = 0; i < this.arrSprites.size(); i++) {
-            Sprite sp = this.arrSprites.get(i);
-            if (sp instanceof ArmyUnit) {
-                ((ArmyUnit) sp).setFireAction();
-            }
-            sp.update();
-            sp.drawOnMainView(mainview);
-        }
-        //2. collect the dead
         ArrayList<Sprite> arrDead= new ArrayList<Sprite>();
         for(Sprite sp: this.arrSprites){
             if(sp.isDead()){
@@ -212,17 +146,15 @@ public class GameEngine implements IGameEngine {
         for(Sprite sp: arrDead){
             this.arrSprites.remove(sp);
         }
-
->>>>>>> origin/NEW_MODULE_D
+        Team winner = this.CheckWinner();
+        if(winner!=null){
+            this.endGame(winner);
+        }
+        this.humanController.onTick(); 
     }
 
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
         Point pt = this.getGlobalCoordinates(canvas, x, y, map);
         Point pt1 = new Point(pt.x-25, pt.y-25);
         Point pt2 = new Point(pt.x+25, pt.y+25);
@@ -234,50 +166,21 @@ public class GameEngine implements IGameEngine {
                 sprite.setAttackGoal(target);
             }
         }
-<<<<<<< HEAD
         this.mouseSprite.handleEvnet(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
-=======
-        
->>>>>>> origin/NEW_MODULE_C
-=======
-
->>>>>>> origin/NEW_MODULE_D
-=======
-        this.mouseSprite.handleEvnet(MouseEvent.RightClick, canvas, x, y, this.arrSelected);    
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
-
+        
     @Override
     public void onLeftClick(ICanvasDevice canvas, int x, int y) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
         this.arrSelected = null;
         if(canvas==this.minimap){
             Point pt = this.getGlobalCoordinates(canvas, x, y, map);
             this.mainview.setViewPort(pt.x-mainview.getWidth()/2, pt.y-mainview.getHeight()/2);
         }
         this.mouseSprite.handleEvnet(MouseEvent.LeftClick, canvas, x, y, null);
-<<<<<<< HEAD
-=======
-        
->>>>>>> origin/NEW_MODULE_C
-=======
-
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
         Point pt1 = this.getGlobalCoordinates(canvas, x1, y1, map);
         Point pt2 = this.getGlobalCoordinates(canvas, x2, y2, map);
         this.arrSelected = this.getArrSprites(pt1, pt2, this.getPlayerTeam());
@@ -308,23 +211,6 @@ public class GameEngine implements IGameEngine {
         }
     }
     
-    /**
-     * Return the left top corner of a free space close to (x,y)
-     * The requested free space's dimension is (w,h)
-=======
-
-    }
-
-    /**
-     * Load map tils and load them into the arrMapTiles of the GameEngine. Also
-     * create the Map object
-     *
-     * @param mapPath
-     */
-    public void loadGameMap(String mapPath) {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-
     /**
      * Return the left top corner of a free space close to (x,y) The requested
      * free space's dimension is (w,h)
@@ -505,160 +391,15 @@ public class GameEngine implements IGameEngine {
             return this.arrTeams.get(0).getTeamInfo();
         }
     }
-    
-    /**
-     * Approve if to allow propser to move to rectangle. Lefttop and width and height are provided
-     * Algorithm: call getArrSprites to get all colliding with rectangle, and then get the altitude and blocking score to decide.
-=======
-     * @return
-     */
-    public Point getFreeSpace(int x, int y, int w, int h) {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-
-    public void addSprite(Sprite s) {
-        this.arrSprites.add(s);
-    }
-
-    public void removeSprite(Sprite s) {
-        this.arrSprites.remove(s);
-    }
-
-    /**
-     * return null if no winner
-     *
-     * @return
-     */
-    public Team CheckWinner() {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-
-    /**
-     * Display the message correspondingly
-     *
-     * @param winner
-     */
-    public void endGame(Team winner) {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-
-    /**
-     * Translates the (x1,y1) in canvas into the coordinates in Map
-     *
-     * @param canvas
-     * @param x1
-     * @param y1
-     * @return
-     */
-    public Point getGlobalCoordinates(ICanvasDevice canvas, int x1, int y1, Map map) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-
-    /**
-     * Return the new left-top corner of mainview so that center point is now
-     * located at the center of the mainview
-     *
-     * @param center
-     * @param mainview
-     * @return
-     */
-    public Point getNewLeftTopCoordinates(Point center, ICanvasDevice mainview) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-
-    /**
-     *
-     * @return human player team (by default it's arrTeams[0])
-     */
-    public Team getPlayerTeam() {
-        return this.arrTeams.get(0);
-
-    }
-
-    /**
-     *
-     * @return computer team (by default it's arrTeams[1])
-     */
-    public Team getAITeam() {
-        return this.arrTeams.get(1);
-    }
-
-    /**
-     * Get the units (including base but not map tiles) in between pt1 and pt2
-     * that belongs to the given team. If team is null, then both team's units
-     * will be included. Suggestion: use some advanced data storage to guarantee
-     * quick response!
-     *
-     * @param pt1
-     * @param pt2
-     * @param team
-     * @return
-     */
-    public ArrayList<Sprite> getArrSprites(Point pt1, Point pt2, Team team) {
-        ArrayList<Sprite> arrRet = new ArrayList<Sprite>();
-        for (int i = 0; i < this.arrSprites.size(); i++) {
-            Sprite sp = this.arrSprites.get(i);
-            if (team == null || team == sp.team) {
-                if (MyMath.isCollide(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y, sp.getX(), sp.getY(), sp.getW(), sp.getH())) {
-                    arrRet.add(sp);
-                }
-            }
-        }
-
-        if (team != null) {
-            Base base = team.getBase();
-            if (MyMath.isCollide(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y, base.getX(), base.getY(), base.getW(), base.getH())) {
-                arrRet.add(base);
-            }
-        }
-
-        return arrRet;
-    }
-
-    @Override
-    public void onMouseMoved(ICanvasDevice canvas, int x, int y
-    ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     * Create a background WritableImage for the MiniMap. Implementation idea:
-     * draw all maptiles as colored squares on the mini maps canvas and take a
-     * snapshot and save it as a WritableImage. Later you can simply draw that
-     * image in the minimap's canvas. Note: call canvas.takeSnapshot function.
-     */
-    public void createBackground() {
-        throw new UnsupportedOperationException("not implemented");
-    }
-
-    /**
-     * Take the previously saved snapshot of Minimap background and draw it.
-     */
-    public void drawBackgroundOfMiniMap() {
-        throw new UnsupportedOperationException("not impelemented");
-    }
-
-    /**
-     * Return the team info of the opponent team
-     *
-     * @param myteam
-     * @return
-     */
-    public TeamInfo getEnemyTeamInfo(Team myteam) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
 
     /**
      * Approve if to allow propser to move to rectangle. Lefttop and width and
      * height are provided Algorithm: call getArrSprites to get all colliding
      * with rectangle, and then get the altitude and blocking score to decide.
-     *
->>>>>>> origin/NEW_MODULE_D
      * @param proposer
      * @param lefttop_corner
      * @param w
      * @param y
-<<<<<<< HEAD
      * @return 
      */
     public boolean approveNextMove(Sprite proposer, Point lefttop_corner, int width, int height){
@@ -691,24 +432,6 @@ public class GameEngine implements IGameEngine {
         return cost;
     }
     
-=======
-     * @return
-     */
-    public boolean approveNextMove(Sprite proposer, Point lefttop_corner, int width, int height) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-
-    /**
-     * The int[][] cost matrix is generated in onRightClick() and saved into a
-     * hashmap. Now simply retrieve it from hashmap
-     *
-     * @param dest
-     * @return
-     */
-    public int[][] getBFSMap(Point dest) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-
     /**
      * Check sequence diagram (2) in D1 (1) check if projectile has requested
      * damage before (2) if not, use getArrSprites to get the list of victimes
@@ -767,6 +490,4 @@ public class GameEngine implements IGameEngine {
             return 0;
         }
     }
-
->>>>>>> origin/NEW_MODULE_D
 }
