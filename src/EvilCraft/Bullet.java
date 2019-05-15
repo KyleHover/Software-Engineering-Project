@@ -24,74 +24,46 @@ import BridgePattern.ICanvasDevice;
 <<<<<<< HEAD
  * @author csc190
  */
-public class Bullet extends Sprite{
     /**
      * Note altitude decides if it hits units in sky or not
 =======
  *
  * @author csc190
  */
+
 public class Bullet extends Projectile {
 
     /**
      * Note altitude decides if it hits units in sky or not
      *
->>>>>>> origin/NEW_MODULE_D
      * @param team
      * @param x
      * @param y
      * @param w
      * @param h
      * @param lifepoints
-<<<<<<< HEAD
      * @param altitude 
-     */
-    public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude) {
-        super(team, x, y, w, h, lifepoints, altitude, 0);
-<<<<<<< HEAD
->>>>>>> origin/NEW_MODULE_C
-=======
-     * @param altitude
      */
     public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int destx, int desty) {
         super(team, x, y, w, h, lifepoints, altitude, 0, destx, desty);
         this.setTravel(15);
         this.pic = "resources/images/common/bullet.png";
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void update() {
-<<<<<<< HEAD
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
         super.update();
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
         super.drawOnMainView(mainview);
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
     @Override
     public Point getNextMove() {
@@ -106,15 +78,5 @@ public class Bullet extends Projectile {
     @Override
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-<<<<<<< HEAD
-    }
-<<<<<<< HEAD
->>>>>>> origin/NEW_MODULE_C
-    
-=======
-
->>>>>>> origin/NEW_MODULE_D
-=======
     }    
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

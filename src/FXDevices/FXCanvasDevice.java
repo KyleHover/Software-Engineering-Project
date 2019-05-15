@@ -28,7 +28,6 @@ import java.util.Hashtable;
 import java.util.Scanner;
 import javafx.event.EventHandler;
 import javafx.scene.CacheHint;
-<<<<<<< HEAD
 import javafx.scene.text.Font;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
@@ -72,16 +71,10 @@ public class FXCanvasDevice implements ICanvasDevice {
 
     public FXCanvasDevice(Canvas canvas) {
         this.canvas = canvas;
-<<<<<<< HEAD
         if (canvas != null) {
             canvas.setCache(false);
         }
         //canvas.setCacheHint(CacheHint.SPEED);
-=======
-        canvas.setCache(false);
-        //canvas.setCacheHint(CacheHint.SPEED);
-
->>>>>>> origin/NEW_MODULE_D
     }
 
     protected GraphicsContext mygc = null;
@@ -91,18 +84,12 @@ public class FXCanvasDevice implements ICanvasDevice {
         x -= this.viewportX;
         y -= this.viewportY;
         //1. SPEED IT UP. If not in view port, skip it
-<<<<<<< HEAD
         if ((x <= -100 || x > this.getWidth() + 100 || y < -100 || y > this.getHeight() + 100)
                 || (x + 100 < -1000 || x + 100 > this.getWidth() + 100 || y + 100 < -100 || y + 100 > this.getHeight() + 100)) {
-=======
-        if( (x<=-100 || x>this.getWidth()+100 || y<-100 || y>this.getHeight()+100) ||
-                (x+100<-1000 || x+100>this.getWidth()+100 || y+100<-100 || y+100>this.getHeight()+100) )  {
->>>>>>> origin/NEW_MODULE_D
             return; //don't draw it
         }
         //1. calculate the actual pixels to be drawn in the view port (due to clipping)
         int minX = Integer.max(x, 0);
-<<<<<<< HEAD
         int maxX = Integer.min(x + width, this.getWidth());
         int minY = Integer.max(y, 0);
         int maxY = Integer.min(y + height, this.getHeight());
@@ -112,20 +99,6 @@ public class FXCanvasDevice implements ICanvasDevice {
             int bp = 1; //should exception
         }
         this.nPixsDrawn += xDiff * yDiff;
-
-=======
-        int maxX = Integer.min(x+width, this.getWidth());
-        int minY = Integer.max(y, 0);
-        int maxY = Integer.min(y+height, this.getHeight());
-        int xDiff = maxX - minX;
-        int yDiff = maxY - minY;
-        if(xDiff<0 || yDiff<0) {
-            int bp = 1; //should exception
-        }
-        this.nPixsDrawn += xDiff*yDiff;
-        
-        
->>>>>>> origin/NEW_MODULE_D
         //2. Real drawing
         Image img = getImage(imgPath);
         GraphicsContext gc = mygc != null ? mygc : this.canvas.getGraphicsContext2D();
@@ -165,10 +138,6 @@ public class FXCanvasDevice implements ICanvasDevice {
     @Override
     public void setupEventHandler(IGameEngine gameEngine) {
         ICanvasDevice me = this;
-<<<<<<< HEAD
-=======
-        
->>>>>>> origin/NEW_MODULE_D
         //2. set up mouse drag event
         this.canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -179,7 +148,6 @@ public class FXCanvasDevice implements ICanvasDevice {
                 bRightDown = event.isSecondaryButtonDown();
             }
         });
-<<<<<<< HEAD
         
         this.canvas.setOnMouseMoved(new EventHandler<MouseEvent>(){
              @Override
@@ -192,8 +160,6 @@ public class FXCanvasDevice implements ICanvasDevice {
                 }
             }
         });
-=======
->>>>>>> origin/NEW_MODULE_D
 
         this.canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
@@ -221,12 +187,7 @@ public class FXCanvasDevice implements ICanvasDevice {
     @Override
     public String readFile(String filepath) {
         int idx = filepath.indexOf("resources/");
-<<<<<<< HEAD
         filepath = filepath.substring(idx + "resources/".length());
-=======
-        filepath = filepath.substring(idx+"resources/".length());
-        
->>>>>>> origin/NEW_MODULE_D
         InputStream is = getClass().getClassLoader().getResourceAsStream(filepath);
         Scanner sc = new Scanner(is);
         String sContent = sc.useDelimiter("\\Z").next();
@@ -244,50 +205,32 @@ public class FXCanvasDevice implements ICanvasDevice {
         this.viewportY = y;
     }
 
-<<<<<<< HEAD
    @Override
     public void drawText(String msg, int x, int y, int fontsize) {
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
         gc.setFont(new Font(fontsize));
         gc.strokeText(msg, x, y);
-=======
-    @Override
-    public void drawText(String msg, int x, int y, int fontsize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawLine(int x1, int y1, int x2, int y2) {
-<<<<<<< HEAD
          GraphicsContext gc = this.canvas.getGraphicsContext2D();
          gc.strokeLine(x1, y1, x2, y2);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void takeSnapshot(String imgname) {
-<<<<<<< HEAD
         WritableImage img = new WritableImage(this.getWidth(), this.getHeight());
         this.canvas.snapshot(new SnapshotParameters(), img);
         this.map.put(imgname, img);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawRectangle(int x, int y, int w, int h, String color) {
-<<<<<<< HEAD
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
         Color cColor = Color.web(color);
         gc.setFill(cColor);
         gc.fillRect(x, y, w, h);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
@@ -299,8 +242,4 @@ public class FXCanvasDevice implements ICanvasDevice {
     public int getY() {
         return this.viewportY;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/NEW_MODULE_D
 }

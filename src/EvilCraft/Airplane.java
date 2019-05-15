@@ -18,76 +18,47 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> origin/NEW_MODULE_D
 
 /**
  *
  * @author csc190
  */
-<<<<<<< HEAD
-
-public class Airplane extends Sprite{
+public class Airplane extends ArmyUnit {
     protected int degree;
     protected String picpath;
+    
 
-    public Airplane(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h, 40, 1, 1);
-        if(team==GameEngine.getInstance().getAITeam()){
-            picpath = "resources/images/team_yellow/plane/plane.png";
-        }else{
-             picpath = "resources/images/team_red/plane/plane.png";
-        }
-
-=======
-public class Airplane extends ArmyUnit {
 
     public Airplane(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h, 40, 1, 1);
         String team_name = team == GameEngine.getInstance().getPlayerTeam() ? "team_red" : "team_yellow";
 
         this.pic = "resources/images/" + team_name + "/plane/plane.png";
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void update() {
-<<<<<<< HEAD
-
-=======
         super.update();
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-        mainview.drawImg(picpath, this.getX(), this.getY(), this.getW(), this.getH(), this.degree);
-=======
         if (this.pic != null) {
             mainview.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
         }
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
-<<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows() * 100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human") >= 0 ? "#FF0000" : "#0000FF";
         minimap.drawRectangle(x * vw / mw, y * vw / mw, w * vw / mw, h * vw / mw, color); 
-=======
-
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public Point getNextMove() {
-<<<<<<< HEAD
-        
         if(this.navigationGoal!=null){
             int x = this.getX()<navigationGoal.x? this.getX()+2: this.getX()-2;
             int y = this.getY()<navigationGoal.y? this.getY()+2: this.getY()-2;
@@ -95,15 +66,10 @@ public class Airplane extends ArmyUnit {
         }else{
             return new Point(this.getX(), this.getY());
         }
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public boolean isFacing(Point pt) {
-<<<<<<< HEAD
-=======
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -145,15 +111,10 @@ public class Airplane extends ArmyUnit {
 
     @Override
     public boolean isGunFacing(Point goal) {
->>>>>>> origin/NEW_MODULE_D
         return true;
     }
 
     @Override
-<<<<<<< HEAD
-    public void adjustBodyHeading(Point pt){   
-    }
-=======
     public void adjustGunHeading(Point goal) {
         return;
     }
@@ -164,6 +125,4 @@ public class Airplane extends ArmyUnit {
         GameEngine ge = GameEngine.getInstance();
         ge.addSprite(shell);
     }
-
->>>>>>> origin/NEW_MODULE_D
 }
