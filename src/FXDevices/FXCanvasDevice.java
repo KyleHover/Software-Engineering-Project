@@ -38,12 +38,6 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-=======
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
->>>>>>> origin/NEW_MODULE_D
 import javafx.scene.transform.Rotate;
 
 /**
@@ -59,11 +53,7 @@ public class FXCanvasDevice implements ICanvasDevice {
     protected Canvas canvas;
     protected Hashtable<String, Image> map = new Hashtable();
     protected long nPixsDrawn = 0;
-<<<<<<< HEAD
     protected int viewportX = 0, viewportY = 0;
-=======
-    protected int viewportX=0, viewportY = 0;
->>>>>>> origin/NEW_MODULE_D
 
     //--------------------------------------
     //methods
