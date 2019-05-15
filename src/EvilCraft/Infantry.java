@@ -18,34 +18,12 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> origin/NEW_MODULE_D
 
 /**
  *
  * @author csc190
  */
-<<<<<<< HEAD
-public class Infantry extends Sprite{
-    protected String pic;
-    public Infantry(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h, 20, 0, 0);
-        pic = this.team==GameEngine.getInstance().getPlayerTeam()?
-                "resources/images/team_red/infantry/infantry.png":
-                "resources/images/team_yellow/infantry/infantry.png";
-    }
-
-    @Override
-    public void update() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
-=======
-       
->>>>>>> origin/NEW_MODULE_C
-=======
 public class Infantry extends ArmyUnit {
 
     protected String[] arrPics;
@@ -68,80 +46,36 @@ public class Infantry extends ArmyUnit {
         ticks++;
         int idx = ticks / 10 % this.arrPics.length;
         this.pic = this.arrPics[idx];
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-       mainview.drawImg(pic, x, y, w, h, 0);
-=======
-         mainview.drawImg(pic, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), 0);
-        
->>>>>>> origin/NEW_MODULE_C
-=======
+        mainview.drawImg(pic, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), 0);
         if (this.pic != null) {
             mainview.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
         }
-
->>>>>>> origin/NEW_MODULE_D
-=======
-         mainview.drawImg(pic, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), 0);
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
         minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
     }    
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/NEW_MODULE_D
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
     @Override
-    public Point getNextMove() {
-<<<<<<< HEAD
+    public Point getNextMove(){
         return this.defaultGetNextMove(3);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public boolean isFacing(Point pt) {
-<<<<<<< HEAD
        return true;
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void adjustBodyHeading(Point pt) {
-<<<<<<< HEAD
-        //do nothing
-    }
-<<<<<<< HEAD
-    
->>>>>>> origin/NEW_MODULE_C
-=======
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -191,12 +125,8 @@ public class Infantry extends ArmyUnit {
 
     @Override
     public void fireAt(Point pt) {
-         Bullet shell = new Bullet(this.team, this.getX()+this.getW()/2, this.getY() + this.getH()/2, 5, 5, 100000, 3, pt.x, pt.y);
+        Bullet shell = new Bullet(this.team, this.getX()+this.getW()/2, this.getY() + this.getH()/2, 5, 5, 100000, 3, pt.x, pt.y);
         GameEngine ge = GameEngine.getInstance();
         ge.addSprite(shell);
     }
-
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

@@ -16,35 +16,25 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package EvilCraft;
-<<<<<<< HEAD
 import BridgePattern.ICanvasDevice;
 import FXDevices.FXCanvasDevice;
 import java.util.LinkedList;
 import java.util.Queue;
 import javafx.util.Pair;
 
-=======
-
-import BridgePattern.ICanvasDevice;
->>>>>>> origin/NEW_MODULE_D
-
 /**
  * Map will be later used to provide routing information
  * @author csc190
  */
 public class Map {
-<<<<<<< HEAD
     protected String [][] tiles;
     protected int [][] map;
-=======
->>>>>>> origin/NEW_MODULE_D
     /**
      * constructor
      * @param mapPath
      * @param canvas - can be used to readFile()
      */
     public Map(String mapPath, ICanvasDevice canvas){
-<<<<<<< HEAD
         String sall = canvas.readFile(mapPath);
         String [] sLines = sall.split("\n");
         this.tiles = new String[sLines.length][];
@@ -65,17 +55,6 @@ public class Map {
     
     public int getNumCols(){
         return this.tiles[0].length;
-=======
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-    
-    public int getNumRows(){
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-    
-    public int getNumCols(){
-        throw new UnsupportedOperationException("not implemented yet!");
->>>>>>> origin/NEW_MODULE_D
     }
     
     /**
@@ -85,23 +64,15 @@ public class Map {
      * @return 
      */
     public String getMapTile(int row, int col){
-<<<<<<< HEAD
         return this.tiles[row][col];
     }
     
     protected static String [] obstacles = {"t1"};
-
-=======
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-    
->>>>>>> origin/NEW_MODULE_D
     /**
      * Given the symbol tell if it's an obstacle for ground units.
      * @param maptile
      * @return 
      */
-<<<<<<< HEAD
 
     //protected static final String obstacles [] = {"t1", "b1", "b2"}; 
     public boolean isObstacle(String maptile){
@@ -112,20 +83,12 @@ public class Map {
         }
         return false;
     }
-
-=======
-    public boolean isObstacle(String maptile){
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-    
->>>>>>> origin/NEW_MODULE_D
     /**
      * Generate the 2d cost matrix based on the map, for pt as destination.
      * @param pt
      * @return 
      */
     public int [][] generateBFSMap(Point pt){
-<<<<<<< HEAD
         int rowTarget = pt.y/100;
         int colTarget = pt.x/100; //assumption maptiles are 100x100
          /**
@@ -174,10 +137,6 @@ public class Map {
             }
 
         }
-
         return res;
-=======
-        throw new UnsupportedOperationException("not implemented yet");
->>>>>>> origin/NEW_MODULE_D
     }
 }
