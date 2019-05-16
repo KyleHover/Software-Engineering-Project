@@ -30,6 +30,7 @@ public class Tank extends ArmyUnit {
     protected int gun_degree = 0;
     String body = "resources/images/team_red/tank/body.png";
     String gun = "resources/images/team_red/tank/gun.png";
+    private int firespeed = 30;
 
     public Tank(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h, 300, 0, 2);
@@ -183,8 +184,12 @@ public class Tank extends ArmyUnit {
 
     @Override
     public void fireAt(Point pt) {
-        Shell shell = new Shell(this.team, this.getX() + this.getW() / 2, this.getY() + this.getH() / 2, 10, 10, 100000, pt.x, pt.y);
-        GameEngine ge = GameEngine.getInstance();
-        ge.addSprite(shell);
+        firespeed--;
+        if (firespeed == 0){
+            firespeed = 30;
+            Shell shell = new Shell(this.team, this.getX() + this.getW() / 2, this.getY() + this.getH() / 2, 10, 10, 100000, pt.x, pt.y);
+            GameEngine ge = GameEngine.getInstance();
+            ge.addSprite(shell);
+        }
     }
 }
