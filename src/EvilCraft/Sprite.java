@@ -118,7 +118,7 @@ public abstract class Sprite {
      * C3.3 You got to check C3.3.2 Sequence diagram, which shows how to decide
      * next move based on navigation map.
      */
-    final protected void setNextMove() {
+    protected void setNextMove() {
         Point pt = this.getNextMove(); //virtual function
         GameEngine ge = GameEngine.getInstance();
         if (ge.approveNextMove(this, pt, this.w, this.h)) {

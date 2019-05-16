@@ -97,9 +97,9 @@ public class GameEngine implements IGameEngine{
         this.loadGameMap(this.mapPath);
         this.mainview.setupEventHandler(this);
         this.minimap.setupEventHandler(this);
-        for(Sprite sp: this.arrMapTiles){
+        /*for(Sprite sp: this.arrMapTiles){
             sp.drawOnMiniMap(minimap);
-        }
+        }*/
         this.createBackground();  
         this.mouseSprite = new MouseSprite(mainview, minimap);   
         this.mainview.setupEventHandler(this);   
@@ -118,6 +118,7 @@ public class GameEngine implements IGameEngine{
         this.drawBackgroundOfMiniMap();
         for(int i=0; i<this.arrMapTiles.size(); i++){
             this.arrMapTiles.get(i).drawOnMainView(mainview);
+            this.arrMapTiles.get(i).drawOnMiniMap(minimap);
         }
         for(int i=0; i<this.arrSprites.size(); i++){
             Sprite sp = this.arrSprites.get(i);
@@ -187,17 +188,17 @@ public class GameEngine implements IGameEngine{
         this.mapPath = mapPath;
         this.map = new Map(mapPath, mainview);
         this.taken = new boolean [map.getNumRows()][map.getNumCols()];
-        for(int i=0; i<map.getNumCols(); i++){
+        for(int i=0; i<map.getNumRows(); i++){
             for(int j=0; j<map.getNumCols(); j++){
                 if (map.isObstacle(map.getMapTile(i,j)))
                     this.taken[i][j] = true;
                 String tile = map.getMapTile(i, j);
-                StaticObject so = null;
+                StaticObject so;
                 if(tile.equals("b1")){
                     so = new Base(this.getPlayerTeam(), j*100, i*100, 100, 100, "b1");
                     this.getPlayerTeam().setBase((Base)so);
                 }else if(tile.equals("b2")){
-                    so = new Base(this.getPlayerTeam(), j*100, i*100, 100, 100, "b1");
+                    so = new Base(this.getAITeam(), j*100, i*100, 100, 100, "b2");
                     this.getAITeam().setBase((Base)so);
                 }else{
                     so = new StaticObject(null, j*100, i*100, 100, 100, tile, 10000);

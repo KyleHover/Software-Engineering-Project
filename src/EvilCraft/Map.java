@@ -36,7 +36,7 @@ public class Map {
      */
     public Map(String mapPath, ICanvasDevice canvas){
         String sall = canvas.readFile(mapPath);
-        String [] sLines = sall.split("\n");
+        String [] sLines = sall.split("\r\n");
         this.tiles = new String[sLines.length][];
         this.map = new int [sLines.length][];
         for(int i=0; i<sLines.length; i++){
@@ -127,7 +127,7 @@ public class Map {
                     //NOW valid indexes
                     if (map[nbX][nbY] == 0 && !visited[nbX][nbY]) {//not blocks
                         visited[nbX][nbY] = true;
-                        //THE CHECK IS TO AVOID CUTTING CORNER OF DIAGNAL MOVEMENT!
+                        //THE CHECK IS TO AVOID CUTTING CORNER OF DIAGONAL MOVEMENT!
                         int newval = map[x][y+yOffset]==0 && map[x+xOffset][y]==0? res[x][y] + 1: res[x][y]+2; 
                         res[nbX][nbY] = newval;
                         queue.add(new Pair(nbX, nbY));

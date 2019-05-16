@@ -51,8 +51,8 @@ public class StaticObject extends Sprite {
 <<<<<<< HEAD
      * @param maptile
      */
-    protected String tile;
-    protected String path;
+    protected String tile = "";
+    protected String path = "";
 
     public StaticObject(Team team, int x, int y, int w, int h, String maptile, int lifepoints) {
         super(team, x, y, w, h, lifepoints, 0, 0);
@@ -62,7 +62,7 @@ public class StaticObject extends Sprite {
 
     @Override
     public void update() {
-        this.explode_ifenabled();
+        ;
         //do nothing
     }
 
@@ -80,16 +80,18 @@ public class StaticObject extends Sprite {
 
     @Override
     public Point getNextMove() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Point(x,y);//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean isFacing(Point pt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void adjustBodyHeading(Point pt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    @Override
+    protected void setNextMove() {}
 }

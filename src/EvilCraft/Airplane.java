@@ -66,12 +66,24 @@ public class Airplane extends ArmyUnit {
 
     @Override
     public boolean isFacing(Point pt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.defaultIsFacing(degree, pt);
     }
 
     @Override
     public void adjustBodyHeading(Point pt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float targetDegree = this.getAngle(new Point(this.getX(), this.getY()), pt);
+        int iTargetDegree = (int) targetDegree;
+        int diff = (iTargetDegree-this.degree+360)%360;
+        if (diff > 180) {
+            //turn left
+            diff = diff - 180;
+            int offset = diff < 10 ? diff : 10;
+            this.degree -= offset;
+        } else {
+            int offset = diff < 10 ? diff : 10;
+            this.degree += offset;
+        }
+        this.degree = (this.degree+360)%360;
     }
 
     @Override
