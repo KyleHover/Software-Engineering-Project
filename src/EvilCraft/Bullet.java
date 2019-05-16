@@ -21,12 +21,6 @@ import BridgePattern.ICanvasDevice;
 
 /**
  * Bullets are fired by infantry
-<<<<<<< HEAD
- * @author csc190
- */
-    /**
-     * Note altitude decides if it hits units in sky or not
-=======
  *
  * @author csc190
  */

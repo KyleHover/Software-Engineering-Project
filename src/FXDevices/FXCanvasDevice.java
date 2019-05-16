@@ -53,7 +53,7 @@ public class FXCanvasDevice implements ICanvasDevice {
     protected Hashtable<String, Image> map = new Hashtable();
     protected long nPixsDrawn = 0;
     protected int viewportX = 0, viewportY = 0;
-
+    
     //--------------------------------------
     //methods
     //--------------------------------------

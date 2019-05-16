@@ -69,7 +69,7 @@ public class MouseSprite extends Sprite {
      * @param y
      * @param arrSprites
      */
-    public void handleEvnet(MouseEvent eventType, ICanvasDevice canvas, int x, int y, ArrayList<Sprite> arrSprites) {
+    public void handleEvent(MouseEvent eventType, ICanvasDevice canvas, int x, int y, ArrayList<Sprite> arrSprites) {
         GameEngine ge = GameEngine.getInstance();
         if (eventType == MouseEvent.LeftClick) {
             this.arrTargets = null;

@@ -30,7 +30,7 @@ import java.util.Hashtable;
  * @author csc190
  */
 public class GameEngine implements IGameEngine{
-    // -------------- DATA MEBERS ------------------
+    // -------------- DATA MEMBERS ------------------
     protected String mapPath;
     protected Map map;
     protected ICanvasDevice mainview;
@@ -42,7 +42,7 @@ public class GameEngine implements IGameEngine{
     protected ArrayList<StaticObject> arrMapTiles = new ArrayList<StaticObject>();
     protected ArrayList<Team> arrTeams = new ArrayList<Team>();
     protected ButtonController humanController;
-    protected MouseSprite mouseSprite = null;
+    protected MouseSprite mouseSprite;
     protected boolean [][] taken;
     protected ArrayList<Sprite> arrSelected = null; //set by Drag operations and released by left click
     protected AI ai;
@@ -78,19 +78,9 @@ public class GameEngine implements IGameEngine{
         Team team2 = new Team(10000, "AI");
         this.arrTeams.add(team1);
         this.arrTeams.add(team2);
-        this.loadGameMap(mapPath);
-        this.mouseSprite = new MouseSprite(this.mainview, this.minimap);
-        /*
+        //this.loadGameMap(mapPath);
+        //this.mouseSprite = new MouseSprite(this.mainview, this.minimap);
         
-        //TEMPORARY
-        taken = new boolean [20][];
-        for(int i=0; i<20; i++){
-            taken[i] = new boolean [20];
-            for(int j=0; j<20; j++){
-                taken[i][j] = false;
-            }
-        }
-        //TEMPORARY REMOVE ABOVE*/
         ge_instance = this;
     }
     
@@ -100,20 +90,22 @@ public class GameEngine implements IGameEngine{
 
     @Override
     public void init() {
-        this.mouseSprite = new MouseSprite(mainview, minimap);
-        this.mainview.setupEventHandler(this);
-        this.loadGameMap(this.mapPath);
+        //DON'T KILL THE following line
+        ge_instance  = this;
+        //DON'T KILL THE ABOVE LINE
         this.humanController = new ButtonController(this.arrTeams.get(0), this.buttonCanvas);
-        this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
-        this.ai = new AI(this.getAITeam(), this.aiButtonController);
+        this.loadGameMap(this.mapPath);
+        this.mainview.setupEventHandler(this);
         this.minimap.setupEventHandler(this);
         for(Sprite sp: this.arrMapTiles){
             sp.drawOnMiniMap(minimap);
         }
-        this.createBackground();        
-        //DON'T KILL THE following line
-        ge_instance  = this;
-        //DON'T KILL THE ABOVE LINE
+        this.createBackground();  
+        this.mouseSprite = new MouseSprite(mainview, minimap);   
+        this.mainview.setupEventHandler(this);   
+        
+        this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
+        this.ai = new AI(this.getAITeam(), this.aiButtonController);
     }
 
 
@@ -166,7 +158,7 @@ public class GameEngine implements IGameEngine{
                 sprite.setAttackGoal(target);
             }
         }
-        this.mouseSprite.handleEvnet(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
+        this.mouseSprite.handleEvent(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
     }
         
     @Override
@@ -176,7 +168,7 @@ public class GameEngine implements IGameEngine{
             Point pt = this.getGlobalCoordinates(canvas, x, y, map);
             this.mainview.setViewPort(pt.x-mainview.getWidth()/2, pt.y-mainview.getHeight()/2);
         }
-        this.mouseSprite.handleEvnet(MouseEvent.LeftClick, canvas, x, y, null);
+        this.mouseSprite.handleEvent(MouseEvent.LeftClick, canvas, x, y, null);
     }
 
     @Override
@@ -192,9 +184,13 @@ public class GameEngine implements IGameEngine{
      * @param mapPath 
      */
     public void loadGameMap(String mapPath){
+        this.mapPath = mapPath;
         this.map = new Map(mapPath, mainview);
+        this.taken = new boolean [map.getNumRows()][map.getNumCols()];
         for(int i=0; i<map.getNumCols(); i++){
             for(int j=0; j<map.getNumCols(); j++){
+                if (map.isObstacle(map.getMapTile(i,j)))
+                    this.taken[i][j] = true;
                 String tile = map.getMapTile(i, j);
                 StaticObject so = null;
                 if(tile.equals("b1")){
@@ -215,12 +211,10 @@ public class GameEngine implements IGameEngine{
      * Return the left top corner of a free space close to (x,y) The requested
      * free space's dimension is (w,h)
      *
->>>>>>> origin/NEW_MODULE_D
      * @param x
      * @param y
      * @param w
      * @param h
-<<<<<<< HEAD
      * @return 
      */
     public Point getFreeSpace(int x, int y, int w, int h){
@@ -357,7 +351,7 @@ public class GameEngine implements IGameEngine{
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
         Point pt = this.getGlobalCoordinates(canvas, x, y, map);
         ArrayList<Sprite> arrSprites = this.getArrSprites(new Point(pt.x-25, pt.y-25), new Point(pt.x+25, pt.y+25), this.getAITeam());
-        this.mouseSprite.handleEvnet(MouseEvent.MouseMove, canvas, x, y, arrSprites);
+        this.mouseSprite.handleEvent(MouseEvent.MouseMove, canvas, x, y, arrSprites);
     }
     
     /**

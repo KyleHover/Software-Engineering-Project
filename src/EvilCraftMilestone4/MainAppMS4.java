@@ -146,12 +146,11 @@ public class MainAppMS4 extends Application {
         createButton("TestC2", g2, vboxTestButtons);
         TestC3GameEngine g3 = new TestC3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC3", g3, vboxTestButtons);
+        
         TestD1GameEngine d1 = new TestD1GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestDamageCoolRate", d1, vboxTestButtons);
-        
         TestD2GameEngine1 d2 = new TestD2GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestRange", d2, vboxTestButtons);
-        
         TestD3GameEngine d3 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestNavigateAndShoot", d3, vboxTestButtons);
 
