@@ -26,15 +26,11 @@ import java.util.ArrayList;
  */
 public class Airplane extends ArmyUnit {
     protected int degree;
-    protected String picpath;
-    
-
 
     public Airplane(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h, 40, 1, 1);
-        String team_name = team == GameEngine.getInstance().getPlayerTeam() ? "team_red" : "team_yellow";
-
-        this.pic = "resources/images/" + team_name + "/plane/plane.png";
+        GameEngine ge = GameEngine.getInstance();
+        this.pic = this.team==ge.getPlayerTeam()? "resources/images/team_red/plane/plane.png": "resources/images/team_yellow/plane/plane.png";
     }
 
     @Override

@@ -30,11 +30,10 @@ public class Infantry extends ArmyUnit {
 
     public Infantry(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h, 20, 0, 0);
-        String team_name = team == GameEngine.getInstance().getPlayerTeam() ? "team_red" : "team_yellow";
-
+        GameEngine ge = GameEngine.getInstance();
         this.arrPics = new String[]{
-            "resources/images/" + team_name + "/soldier/soldier.png"
-
+            this.team==ge.getPlayerTeam()? "resources/images/team_red/soldier/soldier.png": "resources/images/team_yellow/soldier/soldier.png",
+            this.team==ge.getPlayerTeam()? "resources/images/team_red/soldier/soldier2.png": "resources/images/team_yellow/soldier/soldier2.png"
         };
     }
 
