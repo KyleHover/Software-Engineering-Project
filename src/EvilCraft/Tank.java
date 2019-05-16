@@ -18,26 +18,11 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> origin/NEW_MODULE_D
 
-/**
- *
- * @author csc190
- */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-public class Tank extends Sprite{
-
-    protected String pic = "resources/images/team_red/tank/body.png";
+    /*protected String pic = "resources/images/team_red/tank/body.png";
     public Tank(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
-=======
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
+        super(team, x, y, w, h);*/
 public class Tank extends Sprite {
 
     protected String body = "resources/images/team_red/tank/body.png";
@@ -50,8 +35,6 @@ public class Tank extends Sprite {
         GameEngine ge = GameEngine.getInstance();
         body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";
         gun = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/gun.png": "resources/images/team_yellow/tank/gun.png";
-<<<<<<< HEAD
->>>>>>> origin/NEW_MODULE_C
 =======
 public class Tank extends ArmyUnit {
 
@@ -73,11 +56,6 @@ public class Tank extends ArmyUnit {
 
     @Override
     public void update() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
         if(this.navigationGoal!=null){
             if(this.x<navigationGoal.x){
                 x++;
@@ -90,15 +68,7 @@ public class Tank extends ArmyUnit {
                 y--;
             }
         }        
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/NEW_MODULE_C
-=======
         super.update();
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
@@ -129,47 +99,24 @@ public class Tank extends ArmyUnit {
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
         minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
     }
-<<<<<<< HEAD
-    
-=======
-=======
->>>>>>> origin/NEW_MODULE_D
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
 
     @Override
     public Point getNextMove() {
-<<<<<<< HEAD
         return this.defaultGetNextMove(5);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public boolean isFacing(Point pt) {
-<<<<<<< HEAD
         return this.defaultIsFacing(body_degree, pt);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void adjustBodyHeading(Point pt) {
-<<<<<<< HEAD
         float targetDegree = this.getAngle(new Point(this.getX(), this.getY()), pt);
         int iTargetDegree = (int) targetDegree;
         int diff = (iTargetDegree-this.body_degree+360)%360;
@@ -183,12 +130,6 @@ public class Tank extends ArmyUnit {
             this.body_degree += offset;
         }
         this.body_degree = (this.body_degree+360)%360;
-    }
-<<<<<<< HEAD
-
->>>>>>> origin/NEW_MODULE_C
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -254,8 +195,4 @@ public class Tank extends ArmyUnit {
         GameEngine ge = GameEngine.getInstance();
         ge.addSprite(shell);
     }
-
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

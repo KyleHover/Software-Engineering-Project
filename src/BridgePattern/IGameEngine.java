@@ -75,9 +75,4 @@ public interface IGameEngine {
      * @param y2 - y coordinate of the DRAG_END event IN the canvas device
      */
     public abstract void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2);
-    
-<<<<<<< HEAD
-=======
-    
->>>>>>> origin/NEW_MODULE_D
 }

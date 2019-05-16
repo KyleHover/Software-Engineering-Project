@@ -18,10 +18,7 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-<<<<<<< HEAD
-=======
 import static java.lang.Integer.TYPE;
->>>>>>> origin/NEW_MODULE_D
 import java.util.Random;
 
 /**
@@ -166,23 +163,13 @@ public abstract class Sprite {
         this.x = x;
         this.y = y;
         this.w = w;
-=======
-    
-    
-    
-    public Sprite(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int block_score){
-        this.team = team;
-        this.x = x;
-        this.y = y;
-        this.w= w;
->>>>>>> origin/NEW_MODULE_D
         this.h = h;
         this.lifepoints = lifepoints;
         this.altitude = altitude;
         this.blocking_score = blocking_score;
         Random rand = new Random();
-<<<<<<< HEAD
         this.id = String.valueOf(rand.nextInt());
+        //this.id = String.valueOf(rand.nextInt())+"_" + String.valueOf(rand.nextInt());
     }
 
     public int getW() {
@@ -201,10 +188,6 @@ public abstract class Sprite {
         return this.blocking_score;
     }
     
-=======
-        this.id = String.valueOf(rand.nextInt())+"_" + String.valueOf(rand.nextInt());
-    }
-    
     public String getID(){
         return this.id;
     }
@@ -221,24 +204,6 @@ public abstract class Sprite {
         return this.y;
     }
     
-    public int getW(){
-        return this.w;
-    }
-    
-    public int getH(){
-        return this.h;
-    }
-    
-    public int getAltitude(){
-        return this.altitude;
-    }
-    
-    public int getBlockingScore(){
-        return this.blocking_score;
-    }
-    
-    
->>>>>>> origin/NEW_MODULE_D
     /**
      * update its own data attributes
      */

@@ -38,7 +38,6 @@ public class StaticObject extends Sprite {
 =======
  * @author csc190
  */
-public class StaticObject extends Sprite{
     protected String pic;
 
     /***
@@ -59,72 +58,26 @@ public class StaticObject extends Sprite{
         super(team, x, y, w, h, lifepoints, 0, 0);
         this.tile = maptile;
         this.path = "resources/images/common/" + maptile + ".png";
-<<<<<<< HEAD
->>>>>>> origin/NEW_MODULE_C
-=======
-     * @param maptile 
-     */
-    public StaticObject(Team team, int x, int y, int w, int h, String maptile, int lifepoints) {
-        super(team, x, y, w, h, lifepoints, 0, 0);
-        pic = "resources/images/common/" + maptile + ".png";
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void update() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        //do nothing
-=======
->>>>>>> origin/NEW_MODULE_C
-=======
         this.explode_ifenabled();
->>>>>>> origin/NEW_MODULE_D
-=======
         //do nothing
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        mainview.drawImg(picname, x, y, w, h, 0);
-=======
-        mainview.drawImg(path, this.getX(), this.getY(), this.getW(), this.getH(), 0);
->>>>>>> origin/NEW_MODULE_C
-=======
         mainview.drawImg(this.pic,this.getX(), this.getY(), this.getW(), this.getH(), 0);
->>>>>>> origin/NEW_MODULE_D
-=======
-        mainview.drawImg(path, this.getX(), this.getY(), this.getW(), this.getH(), 0);
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
+        //mainview.drawImg(path, this.getX(), this.getY(), this.getW(), this.getH(), 0);
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = 200;
-        minimap.drawImg(picname, x*200/mw, y*200/mw, w*200/mw+1, h*200/mw+1, 0);
-    }
-    
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
-        //
->>>>>>> origin/NEW_MODULE_D
-=======
-        int mw = GameEngine.getInstance().map.getNumRows()*100;
-        int vw = 200;
+        //minimap.drawImg(picname, x*200/mw, y*200/mw, w*200/mw+1, h*200/mw+1, 0);
         minimap.drawImg(path, getX()*200/mw, getY()*200/mw, getW()*200/mw+1, getH()*200/mw+1, 0);
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
@@ -141,13 +94,4 @@ public class StaticObject extends Sprite{
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-
-<<<<<<< HEAD
->>>>>>> origin/NEW_MODULE_C
-=======
-    
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
 }

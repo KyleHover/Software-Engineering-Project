@@ -117,14 +117,8 @@ public interface ICanvasDevice {
      * @param y
      * @param fontsize 
      */
-<<<<<<< HEAD
 
     public void drawText(String msg, int x, int y, int fontsize);
-
-=======
-    public void drawText(String msg, int x, int y, int fontsize);
-    
->>>>>>> origin/NEW_MODULE_D
     /**
      * Draw a line from (x1,y1) to (x2,y2)
      * @param x1
@@ -132,10 +126,6 @@ public interface ICanvasDevice {
      * @param x2
      * @param y2 
      */
-<<<<<<< HEAD
-    
-=======
->>>>>>> origin/NEW_MODULE_D
     public void drawLine(int x1, int y1, int x2, int y2);
     
     /**

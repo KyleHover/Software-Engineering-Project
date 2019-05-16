@@ -45,7 +45,6 @@ public class ButtonController implements IGameEngine{
      * @param canvas 
      */
     public ButtonController(Team team, ICanvasDevice canvas){
-<<<<<<< HEAD
         this.myteam = team;
         this.canvas = canvas;
         String [] arrTypes = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
