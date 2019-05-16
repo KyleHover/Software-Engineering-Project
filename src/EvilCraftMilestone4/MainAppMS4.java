@@ -139,44 +139,21 @@ public class MainAppMS4 extends Application {
         FXSoundDevice fxSound = new FXSoundDevice();
         
         //4. Create Test Scenario Buttons
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-        GameEngine g1 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        GameEngine g2 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        TestCase3GameEngine g3 = new TestCase3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-         createButton("Test1", g1, vboxTestButtons);
-        createButton("Test2", g2, vboxTestButtons);
-        createButton("Test3", g3, vboxTestButtons);
-
-=======
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
+        
         TestC1GameEngine1 g1 = new TestC1GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC1", g1, vboxTestButtons);
         TestC2GameEngine g2 = new TestC2GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC2", g2, vboxTestButtons);
         TestC3GameEngine g3 = new TestC3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC3", g3, vboxTestButtons);
-<<<<<<< HEAD
->>>>>>> origin/NEW_MODULE_C
-=======
-        TestD1GameEngine g1 = new TestD1GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestDamageCoolRate", g1, vboxTestButtons);
+        TestD1GameEngine d1 = new TestD1GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestDamageCoolRate", d1, vboxTestButtons);
         
-        TestD2GameEngine1 g2 = new TestD2GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestRange", g2, vboxTestButtons);
+        TestD2GameEngine1 d2 = new TestD2GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestRange", d2, vboxTestButtons);
         
-         TestD3GameEngine g3 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestNavigateAndShoot", g3, vboxTestButtons);
->>>>>>> origin/NEW_MODULE_D
-        
-=======
- 
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
-       
-        
+        TestD3GameEngine d3 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestNavigateAndShoot", d3, vboxTestButtons);
 
         //3. First layer HBox (horitontal box) of Canvas and VBox
         HBox hbox = new HBox();

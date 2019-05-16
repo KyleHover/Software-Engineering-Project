@@ -22,7 +22,7 @@ package EvilCraft;
  * @author csc190
  */
 public class SpriteInfo {
-    public enum TYPE {TANK, PLANE, INFANTRY, BULLET, SHELL, ROCKET, BASE, NONE};    
+    public enum TYPE {TANK, PLANE, INFANTRY, BULLET, BOMB, SHELL, ROCKET, BASE, NONE};    
     public TYPE type;
     public int x, y;
     public int lifepoints;

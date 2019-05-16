@@ -27,7 +27,6 @@ import java.util.Random;
  */
 public abstract class Sprite {
     //------- DATA MEMBERS ----------
-<<<<<<< HEAD
     protected int x, y, w, h;
     protected Team team;
     protected boolean bDead = false;
@@ -36,6 +35,16 @@ public abstract class Sprite {
     private int altitude, blocking_score;
     private int lifepoints;
     private String id;
+    protected String pic = null;
+    
+    //default explosion
+    protected static String [] arrExplosion= new String [] {
+        "resources/images/common/explosion/exp1.png",
+         "resources/images/common/explosion/exp2.png",
+          "resources/images/common/explosion/exp3.png",
+           "resources/images/common/explosion/exp4.png",
+            "resources/images/common/explosion/exp5.png",
+    };
     
     //------- OPERATIONS -------------
     public String getID(){
@@ -45,10 +54,11 @@ public abstract class Sprite {
         return this.lifepoints;
     }
 
-    public void reduceLifepoints(int offset) {
-        lifepoints -= offset;
-        if (lifepoints < 0) {
-            lifepoints = 0;
+    public void reduceLifepoints(int offset){
+        lifepoints-=offset;
+        if(lifepoints<0) lifepoints=0;
+        if(lifepoints==0){
+            this.startExplode();
         }
     }
     
@@ -68,39 +78,6 @@ public abstract class Sprite {
         this.attackGoal = sp;
     }
     
-=======
-    private int x, y, w, h;
-    private int altitude, blocking_score;
-    protected Team team;
-    protected boolean bDead = false;
-    
-    private int lifepoints;
-    protected String id;
-    protected String pic = null;
-    
-    //default explosion
-    protected static String [] arrExplosion= new String [] {
-        "resources/images/common/explosion/exp1.png",
-         "resources/images/common/explosion/exp2.png",
-          "resources/images/common/explosion/exp3.png",
-           "resources/images/common/explosion/exp4.png",
-            "resources/images/common/explosion/exp5.png",
-    };
-    
-    
-    //------- OPERATIONS -------------
-    public int getLifepoints(){
-        return this.lifepoints;
-    }
-    public void reduceLifepoints(int offset){
-        lifepoints-=offset;
-        if(lifepoints<0) lifepoints=0;
-        if(lifepoints==0){
-            this.startExplode();
-        }
-    }
-    
->>>>>>> origin/NEW_MODULE_D
     public void setDead(){
         this.bDead = true;
     }
@@ -109,16 +86,11 @@ public abstract class Sprite {
         return this.bDead;
     }
     
-<<<<<<< HEAD
-    protected void setPos(int x, int y){
-=======
     final protected void setPos(int x, int y){
->>>>>>> origin/NEW_MODULE_D
         this.x = x;
         this.y = y;
     }
     
-<<<<<<< HEAD
     public Team getTeam() {
         return this.team;
     }
@@ -188,22 +160,6 @@ public abstract class Sprite {
         return this.blocking_score;
     }
     
-    public String getID(){
-        return this.id;
-    }
-    
-    public Team getTeam() {
-        return this.team;
-    }
-    
-    public int getX(){
-        return this.x;
-    }
-    
-    public int getY(){
-        return this.y;
-    }
-    
     /**
      * update its own data attributes
      */
@@ -220,7 +176,6 @@ public abstract class Sprite {
      * @param minimap - canvas device
      */
     public abstract void drawOnMiniMap(ICanvasDevice minimap);
-<<<<<<< HEAD
 
     /**
      * To be implemented by all sprites.
@@ -311,63 +266,6 @@ public abstract class Sprite {
     }
     
     public SpriteInfo getSpriteInfo(){
-        SpriteInfo.TYPE tp;
-        if(this instanceof Tank){
-            tp = SpriteInfo.TYPE.TANK;
-        }else if(this instanceof Base){
-            tp = SpriteInfo.TYPE.BASE;  
-        }else if(this instanceof Infantry){
-            tp = SpriteInfo.TYPE.INFANTRY;  
-        }else if(this instanceof Airplane){
-            tp = SpriteInfo.TYPE.PLANE;  
-        }else if(this instanceof Bullet){
-            tp = SpriteInfo.TYPE.BULLET;  
-        }else if(this instanceof Shell){
-            tp = SpriteInfo.TYPE.SHELL;  
-        }else if(this instanceof Rocket){
-            tp = SpriteInfo.TYPE.ROCKET;  
-        }else{
-            tp = SpriteInfo.TYPE.NONE;
-        }
-        SpriteInfo si = new SpriteInfo(tp, this.getX(), this.getY(), this.getLifepoints(), this.id);
-        return si;
-=======
-    
-    /**
-     * Get next move (for next tick), seek approval from game engine, and turn body if necessary.
-     * NOTE this implementation only addresses  C3.2 BUT NOT C3.3
-     * You got to check C3.3.2 Sequence diagram, which shows how to
-     * decide next move based on navigation map.
-     */
-    final protected void setNextMove(){      
-        Point pt = this.getNextMove(); //virtual function
-        GameEngine ge = GameEngine.getInstance();
-        if(ge.approveNextMove(this, pt, this.w, this.h)){
-            this.setPos(pt.x, pt.y);
-        }
-    }
-    
-     /**
-     * To be implemented by all sprites.
-     * @return 
-     */
-    public abstract Point getNextMove();
-    /**
-     * if the body of the sprite is heading to pt
-     * @param pt
-     * @return 
-     */
-    public abstract boolean isFacing(Point pt);
-    
-    /**
-     * Adjust the body heading so that it is pointing to pt.
-     * Note that for Tank, multiple calls of adjustBodyHeading may be needed.
-     * @param pt
-     * @return 
-     */
-    public abstract void adjustBodyHeading(Point pt);
-    
-    public SpriteInfo getSpriteInfo(){
         SpriteInfo.TYPE type;
     
         if(this instanceof Base){
@@ -388,7 +286,7 @@ public abstract class Sprite {
             type=SpriteInfo.TYPE.BASE;
         }
             
-        SpriteInfo si = new SpriteInfo(type, this.getX(), this.getY(), this.getLifepoints());
+        SpriteInfo si = new SpriteInfo(type, this.getX(), this.getY(), this.getLifepoints(), this.id);
         return si;
         
     }
@@ -414,6 +312,5 @@ public abstract class Sprite {
         if(ticks%5==0){
             idx_explode = idx_explode<arrExplosion.length-1? idx_explode+1: idx_explode;
         }
->>>>>>> origin/NEW_MODULE_D
     }
 }

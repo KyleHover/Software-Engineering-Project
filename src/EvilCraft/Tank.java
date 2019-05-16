@@ -23,35 +23,20 @@ import java.util.ArrayList;
     /*protected String pic = "resources/images/team_red/tank/body.png";
     public Tank(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h);*/
-public class Tank extends Sprite {
 
-    protected String body = "resources/images/team_red/tank/body.png";
-    protected String gun = "resources/images/team_red/tank/gun.png";
-    protected int body_degree = 0;
-    protected int gun_degree = 0;
-
-    public Tank(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h, 300, 0, 2);
-        GameEngine ge = GameEngine.getInstance();
-        body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";
-        gun = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/gun.png": "resources/images/team_yellow/tank/gun.png";
-=======
 public class Tank extends ArmyUnit {
 
     protected int body_degree = 0;
     protected int gun_degree = 0;
-    String body_pic;
-    String gun_pic;
+    String body = "resources/images/team_red/tank/body.png";
+    String gun = "resources/images/team_red/tank/gun.png";
 
     public Tank(Team team, int x, int y, int w, int h) {
         super(team, x, y, w, h, 300, 0, 2);
-        String team_name = team == GameEngine.getInstance().getPlayerTeam() ? "team_red" : "team_yellow";
-        body_pic = "resources/images/" + team_name + "/tank/body.png";
-        gun_pic = "resources/images/" + team_name + "/tank/gun.png";
         int k = 0;
->>>>>>> origin/NEW_MODULE_D
-=======
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
+        GameEngine ge = GameEngine.getInstance();
+        body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";
+        gun = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/gun.png": "resources/images/team_yellow/tank/gun.png";
     }
 
     @Override
@@ -73,28 +58,14 @@ public class Tank extends ArmyUnit {
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        mainview.drawImg(pic, x, y, w, h, 0);
-=======
-        mainview.drawImg(body, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), body_degree);
-        mainview.drawImg(gun, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), gun_degree);
->>>>>>> origin/NEW_MODULE_C
-=======
         if (this.idx_explode == -1) {
-            mainview.drawImg(body_pic, this.getX(), this.getY(), this.getW(), this.getH(), body_degree);
-            mainview.drawImg(gun_pic, this.getX(), this.getY(), this.getW(), this.getH(), gun_degree);
         } else {
             if (this.pic != null) {
                 mainview.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
             }
         }
->>>>>>> origin/NEW_MODULE_D
-=======
         mainview.drawImg(body, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), body_degree);
         mainview.drawImg(gun, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), gun_degree);
->>>>>>> 0806c629882b57249f698f053304b006fc65143c
     }
 
     @Override
