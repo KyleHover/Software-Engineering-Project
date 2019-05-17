@@ -69,6 +69,7 @@ public abstract class Sprite {
         lifepoints-=offset;
         if(lifepoints<0) lifepoints=0;
         if(lifepoints==0){
+            setDead();
             this.startExplode();
         }
     }

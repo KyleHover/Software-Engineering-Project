@@ -181,12 +181,12 @@ public abstract class ArmyUnit extends Sprite {
     
     protected boolean spaceClear(int newx, int newy){ //collision detection
         boolean allClear = true;
-        /*Team enemy;
+        Team enemy;
         if (this.team == GameEngine.getInstance().getAITeam())
             enemy = GameEngine.getInstance().getPlayerTeam();
         else
-            enemy = GameEngine.getInstance().getAITeam();*/
-        /*
+            enemy = GameEngine.getInstance().getAITeam();
+        
         ArrayList<Sprite> otherSprites = GameEngine.getInstance().arrSprites;
         SpriteInfo.TYPE thisType = this.getSpriteInfo().type;
         for (Sprite spr: otherSprites){
@@ -197,7 +197,7 @@ public abstract class ArmyUnit extends Sprite {
                     break;
                 }
             }
-        }*/
+        }
         return allClear;
     }
 }

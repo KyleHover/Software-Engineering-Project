@@ -147,8 +147,12 @@ public class Tank extends ArmyUnit {
                 return si;
             }
         }
-
-        return null;
+        GameEngine ge = GameEngine.getInstance();
+        if (ge.arrTeams.get(0) != team){
+            return ge.arrTeams.get(0).base.getSpriteInfo();
+        }
+        else
+            return ge.arrTeams.get(1).base.getSpriteInfo();
     }
 
     @Override
@@ -202,7 +206,7 @@ public class Tank extends ArmyUnit {
         firespeed--;
         if (firespeed == 0){
             firespeed = 30;
-            Shell shell = new Shell(this.team, this.getX() + imgW / 2, this.getY() + imgH / 2, 10, 10, 100000, pt.x, pt.y);
+            Shell shell = new Shell(this.team, this.getX(), this.getY(), 10, 10, 100000, pt.x, pt.y);
             GameEngine ge = GameEngine.getInstance();
             ge.addSprite(shell);
         }

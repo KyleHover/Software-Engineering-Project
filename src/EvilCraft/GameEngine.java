@@ -118,10 +118,14 @@ public class GameEngine implements IGameEngine{
             this.arrMapTiles.get(i).drawOnMainView(mainview);
             this.arrMapTiles.get(i).drawOnMiniMap(minimap);
         }
+        Team winner = this.CheckWinner();
+        
         for(int i=0; i<this.arrSprites.size(); i++){
             Sprite sp = this.arrSprites.get(i);
-            sp.update();
-            sp.setNextMove();
+            if (winner == null){
+                sp.update();
+                sp.setNextMove();
+            }
             sp.drawOnMainView(mainview);
             sp.drawOnMiniMap(minimap);
         }
@@ -137,7 +141,6 @@ public class GameEngine implements IGameEngine{
         for(Sprite sp: arrDead){
             this.arrSprites.remove(sp);
         }
-        Team winner = this.CheckWinner();
         if(winner!=null){
             this.endGame(winner);
         }
@@ -194,9 +197,11 @@ public class GameEngine implements IGameEngine{
                 StaticObject so;
                 if(tile.equals("b1")){
                     so = new Base(this.getPlayerTeam(), j*100, i*100, 100, 100, "b1");
+                    addSprite(so);
                     this.getPlayerTeam().setBase((Base)so);
                 }else if(tile.equals("b2")){
                     so = new Base(this.getAITeam(), j*100, i*100, 100, 100, "b2");
+                    addSprite(so);
                     this.getAITeam().setBase((Base)so);
                 }else{
                     so = new StaticObject(null, j*100, i*100, 100, 100, tile, 10000);
@@ -263,7 +268,7 @@ public class GameEngine implements IGameEngine{
      */
     public void endGame(Team winner){
         String msg = winner.getName().equals("Human")? "You Win!": "You Lose";
-        this.mainview.drawText(msg, 400, 400, 20); 
+        this.mainview.drawText(msg, 400, 400, 80); 
     }
     /**
      * Translates the (x1,y1) in canvas into the coordinates in Map
@@ -312,15 +317,15 @@ public class GameEngine implements IGameEngine{
     
     protected static boolean isCollide(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2){
        //calculate the intersection
-       /*
+       
        int xmax = Integer.max(x1, x2);
        int xmin = Integer.min(x1 + w1-1, x2 + w2-1);
        int ymax = Integer.max(y1, y2);
        int ymin = Integer.min(y1 + h1-1, y2 + h2-1);
-       */
+       
        //the previous implementation assumed x and y to be the top-left of a unit, but
        //in the current implementation, x and y are drawn as the center
-       int xTL1, yTL1, xBR1, yBR1, xTL2, yTL2, xBR2, yBR2;
+       /*int xTL1, yTL1, xBR1, yBR1, xTL2, yTL2, xBR2, yBR2;
        h1 = Integer.max(h1,w1);
        w1 = h1;
        h2 = Integer.max(h2,w2);
@@ -336,8 +341,9 @@ public class GameEngine implements IGameEngine{
        int xmax = Integer.max(xBR1, xBR2);
        int xmin = Integer.min(xTL1, xTL2);
        int ymax = Integer.max(yBR1, yBR2);
-       int ymin = Integer.min(yTL1, yTL2);
-       return xmin>=xmax && ymin>=ymax;
+       int ymin = Integer.min(yTL1, yTL2);*/
+       boolean val = xmin>=xmax && ymin>=ymax;
+       return val;
     }
     /**
      * Get the units (including base but not map tiles) in between pt1 and pt2 that

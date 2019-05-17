@@ -209,7 +209,8 @@ public class FXCanvasDevice implements ICanvasDevice {
     public void drawText(String msg, int x, int y, int fontsize) {
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
         gc.setFont(new Font(fontsize));
-        gc.strokeText(msg, x, y);
+        gc.setFill(Color.RED);
+        gc.fillText(msg, x, y);
     }
 
     @Override
