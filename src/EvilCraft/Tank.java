@@ -33,7 +33,7 @@ public class Tank extends ArmyUnit {
     private int firespeed = 30;
 
     public Tank(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h, 300, 0, 2);
+        super(team, x, y, 84, 84, 300, 0, 2);
         int k = 0;
         GameEngine ge = GameEngine.getInstance();
         body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";

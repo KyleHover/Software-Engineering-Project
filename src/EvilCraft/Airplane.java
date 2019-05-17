@@ -28,7 +28,7 @@ public class Airplane extends ArmyUnit {
     protected int degree;
 
     public Airplane(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h, 40, 1, 1);
+        super(team, x, y, 89, 55, 40, 1, 1);
         GameEngine ge = GameEngine.getInstance();
         this.pic = this.team==ge.getPlayerTeam()? "resources/images/team_red/plane/plane.png": "resources/images/team_yellow/plane/plane.png";
     }
