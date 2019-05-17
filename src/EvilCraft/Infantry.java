@@ -49,9 +49,9 @@ public class Infantry extends ArmyUnit {
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-        mainview.drawImg(pic, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), 0);
+        
         if (this.pic != null) {
-            mainview.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
+            mainview.drawImg(pic, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), 0);
         }
     }
 

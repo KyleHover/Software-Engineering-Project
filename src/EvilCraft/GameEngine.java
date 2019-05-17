@@ -321,6 +321,10 @@ public class GameEngine implements IGameEngine{
        //the previous implementation assumed x and y to be the top-left of a unit, but
        //in the current implementation, x and y are drawn as the center
        int xTL1, yTL1, xBR1, yBR1, xTL2, yTL2, xBR2, yBR2;
+       h1 = Integer.max(h1,w1);
+       w1 = h1;
+       h2 = Integer.max(h2,w2);
+       w2 = h2;
        xTL1 = x1 - w1/2; //TL is topleft
        yTL1 = y1 - h1/2;
        xBR1 = x1 + w1/2; //BR is bottomright

@@ -33,4 +33,12 @@ public class Base extends StaticObject{
         mainview.drawImg("resources/images/common/g1.png", this.getX(), this.getY(), this.getW(), this.getH(), 0);
         super.drawOnMainView(mainview);
     }
+    
+    @Override
+    public void drawOnMiniMap(ICanvasDevice minimap) {
+        int mw = GameEngine.getInstance().map.getNumRows()*100;
+        int vw = 200;
+        minimap.drawImg("resources/images/common/g1.png", getX()*200/mw, getY()*200/mw, getW()*200/mw+1, getH()*200/mw+1, 0);
+        minimap.drawImg(path, getX()*200/mw, getY()*200/mw, getW()*200/mw+1, getH()*200/mw+1, 0);
+    }
 }
