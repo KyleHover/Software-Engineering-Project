@@ -77,7 +77,7 @@ public class TestModD extends GameEngine {
         this.addSprite(i21);
         this.addSprite(a21);
         
-        super.init();           //D2 Test
+                  //D2 Test
         myteam.setBase(b1);
         aiteam.setBase(b2);
         myteam.addSprite(t11);
@@ -95,7 +95,7 @@ public class TestModD extends GameEngine {
         this.addSprite(i21);
         this.addSprite(a21);
         
-        super.init();           //D3 Test
+                   //D3 Test
 
         myteam.setBase(b1);
         aiteam.setBase(b2);
@@ -103,7 +103,7 @@ public class TestModD extends GameEngine {
         Infantry i22 = new Infantry(aiteam, 250, 220, 25, 25); 
         Infantry i23 = new Infantry(aiteam, 250, 300, 25, 25);
         Infantry i24 = new Infantry(aiteam, 225, 280, 25, 25);
-        Infantry i25= new Infantry(aiteam, 325, 350, 25, 25);
+        Infantry i25 = new Infantry(aiteam, 325, 350, 25, 25);
         
         myteam.addSprite(t11);
         

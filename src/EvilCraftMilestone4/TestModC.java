@@ -50,7 +50,6 @@ public class TestModC extends GameEngine {
             //t1.setNavigationGoal(new Point(100, 500));
             this.addSprite(t1);
         }
-       super.init();
         Team aiteam = this.getAITeam();
         Tank t1 = new Tank(myteam, 100, 100, 50, 50);
         Tank t2 = new Tank(aiteam, 300, 100, 50, 50);
