@@ -42,13 +42,13 @@ public class AI {
     public void update(){
         ticks++;
         //2. make the units
-        if(ticks%50==0){
+        if(ticks%200==0){
             this.btnController.spawnInfantry();
         }
-        if(ticks%50==0){
+        if(ticks%200==0){
             this.btnController.spawnTank();
         }
-        if(ticks%100==0){
+        if(ticks%400==0){
             this.btnController.spawnAircraft();
         }
         

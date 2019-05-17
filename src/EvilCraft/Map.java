@@ -36,7 +36,7 @@ public class Map {
      */
     public Map(String mapPath, ICanvasDevice canvas){
         String sall = canvas.readFile(mapPath);
-        String [] sLines = sall.split("\n");
+        String [] sLines = sall.split("\r\n");
         this.tiles = new String[sLines.length][];
         this.map = new int [sLines.length][];
         for(int i=0; i<sLines.length; i++){

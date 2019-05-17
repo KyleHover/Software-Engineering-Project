@@ -31,9 +31,15 @@ public class Tank extends ArmyUnit {
     String body = "resources/images/team_red/tank/body.png";
     String gun = "resources/images/team_red/tank/gun.png";
     private int firespeed = 30;
-
+    private final static int imgW = 84;
+    private final static int imgH = 84; //width and height for drawing
+    private final static int colW = 34;
+    private final static int colH = 58; //width and height for collision
+    //Sprite superclass has variables w and h, these correspond to imgW and imgH and can be used as such
+    //getW and H return colW and H, because that's the only one other objects should care about unless they're a canvas
+    
     public Tank(Team team, int x, int y, int w, int h) {
-        super(team, x, y, 84, 84, 300, 0, 2);
+        super(team, x, y, imgW, imgH, 300, 0, 2);
         int k = 0;
         GameEngine ge = GameEngine.getInstance();
         body = this.team==ge.getPlayerTeam()? "resources/images/team_red/tank/body.png": "resources/images/team_yellow/tank/body.png";
@@ -62,18 +68,27 @@ public class Tank extends ArmyUnit {
         if (this.idx_explode == -1) {
         } else {
             if (this.pic != null) {
-                mainview.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
+                mainview.drawImg(this.pic, this.getX(), this.getY(), imgW, imgH, 0); 
             }
         }
-        mainview.drawImg(body, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), body_degree);
-        mainview.drawImg(gun, this.getX() - this.getW() / 2, this.getY() - this.getH() / 2, this.getW(), this.getH(), gun_degree);
+        mainview.drawImg(body, this.getX() - imgW/ 2, this.getY() - imgH/ 2, imgW, imgH, body_degree);
+        mainview.drawImg(gun, this.getX() - imgW/ 2, this.getY() - imgH / 2, imgW, imgH, gun_degree);
     }
 
+    @Override
+    public int getH(){ //changed for collision detection
+        return colH;
+    }
+    
+    @Override
+    public int getW(){ //changed for collision detection
+        return colW;
+    }
+    
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
-        String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
         minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
     }
 
@@ -187,7 +202,7 @@ public class Tank extends ArmyUnit {
         firespeed--;
         if (firespeed == 0){
             firespeed = 30;
-            Shell shell = new Shell(this.team, this.getX() + this.getW() / 2, this.getY() + this.getH() / 2, 10, 10, 100000, pt.x, pt.y);
+            Shell shell = new Shell(this.team, this.getX() + imgW / 2, this.getY() + imgH / 2, 10, 10, 100000, pt.x, pt.y);
             GameEngine ge = GameEngine.getInstance();
             ge.addSprite(shell);
         }

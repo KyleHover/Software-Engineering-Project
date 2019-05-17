@@ -234,6 +234,9 @@ public class GameEngine implements IGameEngine{
     
     public void addSprite(Sprite s){
         this.arrSprites.add(s);
+        if (s.team != null){
+            s.team.addSprite(s); //addSprite for teams here to reduce redundancy
+        }
     }
     
     public void removeSprite(Sprite s){
@@ -307,12 +310,33 @@ public class GameEngine implements IGameEngine{
          return this.arrTeams.get(1);
     }
     
-    protected boolean isCollide(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2){
+    protected static boolean isCollide(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2){
        //calculate the intersection
+       /*
        int xmax = Integer.max(x1, x2);
-       int xmin = Integer.min(x1+w1-1, x2+w2-1);
+       int xmin = Integer.min(x1 + w1-1, x2 + w2-1);
        int ymax = Integer.max(y1, y2);
        int ymin = Integer.min(y1 + h1-1, y2 + h2-1);
+       */
+       //the previous implementation assumed x and y to be the top-left of a unit, but
+       //in the current implementation, x and y are drawn as the center
+       int xTL1, yTL1, xBR1, yBR1, xTL2, yTL2, xBR2, yBR2;
+       h1 = Integer.max(h1,w1);
+       w1 = h1;
+       h2 = Integer.max(h2,w2);
+       w2 = h2;
+       xTL1 = x1 - w1/2; //TL is topleft
+       yTL1 = y1 - h1/2;
+       xBR1 = x1 + w1/2; //BR is bottomright
+       yBR1 = y1 + h1/2;
+       xTL2 = x2 - w2/2;
+       yTL2 = y2 - h2/2;
+       xBR2 = x2 + w2/2;
+       yBR2 = y2 + h2/2;
+       int xmax = Integer.max(xBR1, xBR2);
+       int xmin = Integer.min(xTL1, xTL2);
+       int ymax = Integer.max(yBR1, yBR2);
+       int ymin = Integer.min(yTL1, yTL2);
        return xmin>=xmax && ymin>=ymax;
     }
     /**

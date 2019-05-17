@@ -138,7 +138,7 @@ public class ButtonController implements IGameEngine{
         Point pt = this.genRandomLoc();
         Tank tank = new Tank(this.myteam, pt.x, pt.y, 50, 50);
         GameEngine.getInstance().addSprite(tank);
-        this.myteam.addSprite(tank);
+        //this.myteam.addSprite(tank);
         return true;
     }
 
@@ -152,7 +152,7 @@ public class ButtonController implements IGameEngine{
         Point pt = this.genRandomLoc();
         Airplane plane = new Airplane(this.myteam, pt.x, pt.y, 50, 50);
         GameEngine.getInstance().addSprite(plane);
-        this.myteam.addSprite(plane);
+        //this.myteam.addSprite(plane);
         return true;
     }
 
@@ -163,10 +163,11 @@ public class ButtonController implements IGameEngine{
         if (!this.myteam.PurchaseSprite("INFANTRY")) {
             return false;
         }
+        
         Point pt = this.genRandomLoc();
         Infantry soldier = new Infantry(this.myteam, pt.x, pt.y, 25, 25);
         GameEngine.getInstance().addSprite(soldier);
-        this.myteam.addSprite(soldier);
+        //this.myteam.addSprite(soldier);
         return true;
     }
 }

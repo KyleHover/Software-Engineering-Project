@@ -29,7 +29,7 @@ public class ShopButton {
     public static final String INFANTRY = "INFANTRY";
     public static final String PLANE = "PLANE";
     protected int x, y, w, h; //coordinates relative to ButtonController    
-    protected String unitName; //of of defined constant TANK, INFANTRY, PLANCE
+    protected String unitName; //of of defined constant TANK, INFANTRY, PLANE
     protected int creationTime; //e.g., 500 ticks for tank etc
     protected int tickLeft = 0; //when it's not zero, the button is in progress
     protected String picPath; //the button figure to draw
