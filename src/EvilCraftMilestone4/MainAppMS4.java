@@ -158,10 +158,6 @@ public class MainAppMS4 extends Application {
         createButton("TestModA", a1 , vboxTestButtons);
         TestModB b1 = new TestModB("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestModB", b1 , vboxTestButtons);
-        TestModC c1 = new TestModC("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestModC", c1 , vboxTestButtons);
-        TestModD d4 = new TestModD("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestModD", d4 , vboxTestButtons);
         StartTheGame g4 = new StartTheGame("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("Start Game", g4 , vboxTestButtons);
         
