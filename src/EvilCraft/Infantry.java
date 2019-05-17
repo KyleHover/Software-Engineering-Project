@@ -29,7 +29,7 @@ public class Infantry extends ArmyUnit {
     protected String[] arrPics;
 
     public Infantry(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h, 20, 0, 0);
+        super(team, x, y, 25, 25, 20, 0, 0);
         GameEngine ge = GameEngine.getInstance();
         this.arrPics = new String[]{
             this.team==ge.getPlayerTeam()? "resources/images/team_red/soldier/soldier.png": "resources/images/team_yellow/soldier/soldier.png",
