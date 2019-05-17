@@ -129,7 +129,9 @@ public class GameEngine implements IGameEngine{
             sp.drawOnMainView(mainview);
             sp.drawOnMiniMap(minimap);
         }
-        this.ai.update();   
+        if (winner == null){
+            this.ai.update();
+        }
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
         ArrayList<Sprite> arrDead= new ArrayList<Sprite>();

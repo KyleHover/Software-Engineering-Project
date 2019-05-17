@@ -67,7 +67,7 @@ public class Airplane extends ArmyUnit {
     public boolean isFacing(Point pt) {
         return this.defaultIsFacing(degree, pt);
     }
-
+    
     @Override
     public void adjustBodyHeading(Point pt) {
         float targetDegree = this.getAngle(new Point(this.getX(), this.getY()), pt);
@@ -83,6 +83,27 @@ public class Airplane extends ArmyUnit {
             this.degree += offset;
         }
         this.degree = (this.degree+360)%360;
+    }
+    
+    @Override
+    protected void setNextMove() {
+        Point pt = this.getNextMove(); //virtual function
+        GameEngine ge = GameEngine.getInstance();
+        if (ge.approveNextMove(this, pt, this.w, this.h)) {
+            if (!this.isFacing(pt)) {
+                this.adjustBodyHeading(pt);
+            } else {
+                this.setPos(pt.x, pt.y);
+            }
+            SpriteInfo target = getFiringGoal();
+            if (target != null){ //can't be shooting nothing if it's nowhere
+                Point shoothere = new Point (target.x,target.y);
+                if (isGunFacing(shoothere))
+                    fireAt(shoothere);
+                else
+                    adjustBodyHeading(shoothere);
+            }
+        }
     }
 
     @Override

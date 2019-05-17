@@ -116,7 +116,7 @@ public abstract class Sprite {
     }
     
     protected float getAngle(Point me, Point target) {
-        float angle = (float) Math.toDegrees(Math.atan2(target.y - me.y, target.x - me.x));
+       float angle = (float) Math.toDegrees(Math.atan2(target.y - me.y, target.x - me.x));
        angle += 90.0; //cause we use y-axis clockwise
         if (angle < 0) {
             angle += 360;

@@ -27,10 +27,12 @@ import java.util.ArrayList;
 public class Infantry extends ArmyUnit {
 
     protected String[] arrPics;
+    protected int degree;
 
     public Infantry(Team team, int x, int y, int w, int h) {
         super(team, x, y, 25, 25, 20, 0, 0);
         GameEngine ge = GameEngine.getInstance();
+        degree=0;
         this.arrPics = new String[]{
             this.team==ge.getPlayerTeam()? "resources/images/team_red/soldier/soldier.png": "resources/images/team_yellow/soldier/soldier.png",
             this.team==ge.getPlayerTeam()? "resources/images/team_red/soldier/soldier2.png": "resources/images/team_yellow/soldier/soldier2.png"
@@ -71,10 +73,44 @@ public class Infantry extends ArmyUnit {
     public boolean isFacing(Point pt) {
        return true;
     }
+    
+    
+    @Override
+    protected void setNextMove() {
+        Point pt = this.getNextMove(); //virtual function
+        GameEngine ge = GameEngine.getInstance();
+        if (ge.approveNextMove(this, pt, this.w, this.h)) {
+            if (!this.isFacing(pt)) {
+                this.adjustBodyHeading(pt);
+            } else {
+                this.setPos(pt.x, pt.y);
+            }
+            SpriteInfo target = getFiringGoal();
+            if (target != null){ //can't be shooting nothing if it's nowhere
+                Point shoothere = new Point (target.x,target.y);
+                if (isGunFacing(shoothere))
+                    fireAt(shoothere);
+                else
+                    adjustGunHeading(shoothere);
+            }
+        }
+    }
 
     @Override
     public void adjustBodyHeading(Point pt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float targetDegree = this.getAngle(new Point(this.getX(), this.getY()), pt);
+        int iTargetDegree = (int) targetDegree;
+        int diff = (iTargetDegree-this.degree+360)%360;
+        if (diff > 180) {
+            //turn left
+            diff = diff - 180;
+            int offset = diff < 10 ? diff : 10;
+            this.degree -= offset;
+        } else {
+            int offset = diff < 10 ? diff : 10;
+            this.degree += offset;
+        }
+        this.degree = (this.degree+360)%360;
     }
 
     @Override
