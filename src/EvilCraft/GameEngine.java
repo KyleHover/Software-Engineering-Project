@@ -234,6 +234,9 @@ public class GameEngine implements IGameEngine{
     
     public void addSprite(Sprite s){
         this.arrSprites.add(s);
+        if (s.team != null){
+            s.team.addSprite(s); //addSprite for teams here to reduce redundancy
+        }
     }
     
     public void removeSprite(Sprite s){

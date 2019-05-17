@@ -46,15 +46,15 @@ public class TestModC extends GameEngine {
             int nx = 100 + rand.nextInt(500);
             int ny = 100 + rand.nextInt(500);
             Tank t1 = new Tank(myteam, nx, ny, 50, 50);
-            myteam.addSprite(t1);
+            //myteam.addSprite(t1);
             //t1.setNavigationGoal(new Point(100, 500));
             this.addSprite(t1);
         }
         Team aiteam = this.getAITeam();
         Tank t1 = new Tank(myteam, 100, 100, 50, 50);
         Tank t2 = new Tank(aiteam, 300, 100, 50, 50);
-        myteam.addSprite(t1);
-        aiteam.addSprite(t2);
+        //myteam.addSprite(t1);
+        //aiteam.addSprite(t2);
         this.addSprite(t1);
         this.addSprite(t2);
         t1.setNavigationGoal(new Point(t2.getX(), t2.getY())); 

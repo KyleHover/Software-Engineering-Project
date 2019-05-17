@@ -62,14 +62,14 @@ public class TestModD extends GameEngine {
        
         Airplane a21 = new Airplane(aiteam, 160, 500, 25, 25);
         
-        myteam.addSprite(t11);
+        /*myteam.addSprite(t11);
         myteam.addSprite(t12);
         myteam.addSprite(i11);
         aiteam.addSprite(t2);
         aiteam.addSprite(i21);
        
         aiteam.addSprite(a21);
-        
+        */
         this.addSprite(t11);
         this.addSprite(t12);
         this.addSprite(i11);
@@ -80,13 +80,13 @@ public class TestModD extends GameEngine {
                   //D2 Test
         myteam.setBase(b1);
         aiteam.setBase(b2);
-        myteam.addSprite(t11);
+        /*myteam.addSprite(t11);
         myteam.addSprite(t12);
        
         aiteam.addSprite(t2);
         aiteam.addSprite(i21);
        
-        aiteam.addSprite(a21);
+        aiteam.addSprite(a21);*/
         
         this.addSprite(t11);
         this.addSprite(t12);
@@ -105,7 +105,7 @@ public class TestModD extends GameEngine {
         Infantry i24 = new Infantry(aiteam, 225, 280, 25, 25);
         Infantry i25 = new Infantry(aiteam, 325, 350, 25, 25);
         
-        myteam.addSprite(t11);
+        /*myteam.addSprite(t11);
         
        
         aiteam.addSprite(i21);
@@ -114,7 +114,7 @@ public class TestModD extends GameEngine {
         aiteam.addSprite(i24);
         aiteam.addSprite(i25);
        
-        aiteam.addSprite(a21);
+        aiteam.addSprite(a21);*/
         
         this.addSprite(t11);
         

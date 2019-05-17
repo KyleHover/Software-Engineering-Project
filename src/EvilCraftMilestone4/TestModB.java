@@ -38,15 +38,15 @@ public class TestModB extends GameEngine{
         Tank mytank1 = new Tank(this.getPlayerTeam(), 300, 300, 50, 50);
         Tank mytank2 = new Tank(this.getPlayerTeam(), 1800, 1800, 50, 50);
         this.addSprite(mytank1);
-        this.addSprite(mytank2);
+        this.addSprite(mytank2);/*
         this.getPlayerTeam().addSprite(mytank1);
-        this.getPlayerTeam().addSprite(mytank2);
+        this.getPlayerTeam().addSprite(mytank2);*/
         
         Infantry i1 = new Infantry(this.getAITeam(), 300, 500, 25, 25);
         Infantry i2 = new Infantry(this.getAITeam(), 400, 500, 25, 25);
         this.addSprite(i1);
-        this.addSprite(i2);
+        this.addSprite(i2);/*
         this.getAITeam().addSprite(i1);
-        this.getAITeam().addSprite(i2);  
+        this.getAITeam().addSprite(i2);  */
     }
 }
