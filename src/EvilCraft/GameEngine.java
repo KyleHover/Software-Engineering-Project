@@ -52,7 +52,6 @@ public class GameEngine implements IGameEngine{
     /**
      * Constructor.
      * An evil craft game engine has 3 canvases: main view, mini map and a panel for manufacturing units
-=======
     protected ArrayList<Sprite> arrSelected = null; //set by Drag operations and released by left click
     protected MouseSprite mouseSprite;
 //---------------- OPERATIONS ------------------
@@ -61,7 +60,6 @@ public class GameEngine implements IGameEngine{
      * Constructor. An evil craft game engine has 3 canvases: main view, mini
      * map and a panel for manufacturing units
      *
->>>>>>> origin/NEW_MODULE_D
      * @param mapPath
      * @param mainview
      * @param minimap

@@ -153,7 +153,18 @@ public class MainAppMS4 extends Application {
         createButton("TestRange", d2, vboxTestButtons);
         TestD3GameEngine d3 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestNavigateAndShoot", d3, vboxTestButtons);
-
+        
+        TestModA a1 = new TestModA("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestModA", a1 , vboxTestButtons);
+        TestModB b1 = new TestModB("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestModB", b1 , vboxTestButtons);
+        TestModC c1 = new TestModC("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestModC", c1 , vboxTestButtons);
+        TestModD d4 = new TestModD("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestModD", d4 , vboxTestButtons);
+        StartTheGame g4 = new StartTheGame("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("Start Game", g4 , vboxTestButtons);
+        
         //3. First layer HBox (horitontal box) of Canvas and VBox
         HBox hbox = new HBox();
         hbox.getChildren().add(canvasMainView);
