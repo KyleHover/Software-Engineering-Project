@@ -181,16 +181,16 @@ public abstract class ArmyUnit extends Sprite {
     
     protected boolean spaceClear(int newx, int newy){ //collision detection
         boolean allClear = true;
-        Team enemy;
+        /*Team enemy;
         if (this.team == GameEngine.getInstance().getAITeam())
             enemy = GameEngine.getInstance().getPlayerTeam();
         else
-            enemy = GameEngine.getInstance().getAITeam();
-        ArrayList<Sprite> enemySprites = enemy.getSprites();
-        SpriteInfo sprInfo;
-        for (Sprite spr: enemySprites){
+            enemy = GameEngine.getInstance().getAITeam();*/
+        ArrayList<Sprite> otherSprites = GameEngine.getInstance().arrSprites;
+        SpriteInfo.TYPE thisType = this.getSpriteInfo().type;
+        for (Sprite spr: otherSprites){
             SpriteInfo.TYPE typeOf = spr.getSpriteInfo().type;
-            if (typeOf == SpriteInfo.TYPE.INFANTRY || typeOf == SpriteInfo.TYPE.TANK || typeOf == SpriteInfo.TYPE.PLANE){
+            if ((typeOf == SpriteInfo.TYPE.INFANTRY && thisType != SpriteInfo.TYPE.PLANE) || (typeOf == SpriteInfo.TYPE.TANK && thisType != SpriteInfo.TYPE.PLANE) || (typeOf == SpriteInfo.TYPE.PLANE && thisType == SpriteInfo.TYPE.PLANE)){
                 if (GameEngine.isCollide(newx,newy,getW(),getH(),spr.getX(),spr.getY(),spr.getW(),spr.getH())){
                     allClear = false; //space not clear if collision detected
                     break;

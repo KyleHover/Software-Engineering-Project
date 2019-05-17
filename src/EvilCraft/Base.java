@@ -17,6 +17,8 @@
  */
 package EvilCraft;
 
+import BridgePattern.ICanvasDevice;
+
 /**
  *
  * @author csc190
@@ -24,5 +26,11 @@ package EvilCraft;
 public class Base extends StaticObject{
     public Base(Team team, int x, int y, int w, int h, String maptile) {
         super(team, x, y, w, h, maptile, 100);
+    }
+    
+    @Override
+    public void drawOnMainView(ICanvasDevice mainview) {
+        mainview.drawImg("resources/images/common/g1.png", this.getX(), this.getY(), this.getW(), this.getH(), 0);
+        super.drawOnMainView(mainview);
     }
 }

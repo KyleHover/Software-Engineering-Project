@@ -309,10 +309,27 @@ public class GameEngine implements IGameEngine{
     
     protected static boolean isCollide(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2){
        //calculate the intersection
+       /*
        int xmax = Integer.max(x1, x2);
-       int xmin = Integer.min(x1+w1-1, x2+w2-1);
+       int xmin = Integer.min(x1 + w1-1, x2 + w2-1);
        int ymax = Integer.max(y1, y2);
        int ymin = Integer.min(y1 + h1-1, y2 + h2-1);
+       */
+       //the previous implementation assumed x and y to be the top-left of a unit, but
+       //in the current implementation, x and y are drawn as the center
+       int xTL1, yTL1, xBR1, yBR1, xTL2, yTL2, xBR2, yBR2;
+       xTL1 = x1 - w1/2; //TL is topleft
+       yTL1 = y1 - h1/2;
+       xBR1 = x1 + w1/2; //BR is bottomright
+       yBR1 = y1 + h1/2;
+       xTL2 = x2 - w2/2;
+       yTL2 = y2 - h2/2;
+       xBR2 = x2 + w2/2;
+       yBR2 = y2 + h2/2;
+       int xmax = Integer.max(xBR1, xBR2);
+       int xmin = Integer.min(xTL1, xTL2);
+       int ymax = Integer.max(yBR1, yBR2);
+       int ymin = Integer.min(yTL1, yTL2);
        return xmin>=xmax && ymin>=ymax;
     }
     /**
