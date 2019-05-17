@@ -59,7 +59,6 @@ public class Infantry extends ArmyUnit {
     public void drawOnMiniMap(ICanvasDevice minimap) {
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
-        String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
         minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
     }    
 

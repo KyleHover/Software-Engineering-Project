@@ -30,6 +30,7 @@ public abstract class ArmyUnit extends Sprite {
     protected SpriteInfo attackGoal = null;
     protected Point navigationGoal = null;
     private int coolTicksNeeded = 0;
+    String color = this.team == GameEngine.getInstance().getPlayerTeam() ? "#FF0000" : "#FFFF00";
 
     public ArmyUnit(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int block_score) {
         super(team, x, y, w, h, lifepoints, altitude, block_score);
@@ -171,5 +172,31 @@ public abstract class ArmyUnit extends Sprite {
         }
         this.explode_ifenabled();
     }
-
+    
+    @Override
+    protected void setPos(int x, int y){
+        if (spaceClear(x,y))
+            super.setPos(x,y);
+    }
+    
+    protected boolean spaceClear(int newx, int newy){ //collision detection
+        boolean allClear = true;
+        Team enemy;
+        if (this.team == GameEngine.getInstance().getAITeam())
+            enemy = GameEngine.getInstance().getPlayerTeam();
+        else
+            enemy = GameEngine.getInstance().getAITeam();
+        ArrayList<Sprite> enemySprites = enemy.getSprites();
+        SpriteInfo sprInfo;
+        for (Sprite spr: enemySprites){
+            SpriteInfo.TYPE typeOf = spr.getSpriteInfo().type;
+            if (typeOf == SpriteInfo.TYPE.INFANTRY || typeOf == SpriteInfo.TYPE.TANK || typeOf == SpriteInfo.TYPE.PLANE){
+                if (GameEngine.isCollide(newx,newy,getW(),getH(),spr.getX(),spr.getY(),spr.getW(),spr.getH())){
+                    allClear = false; //space not clear if collision detected
+                    break;
+                }
+            }
+        }
+        return allClear;
+    }
 }

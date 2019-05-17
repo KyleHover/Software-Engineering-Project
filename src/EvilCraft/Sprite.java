@@ -35,15 +35,26 @@ public abstract class Sprite {
     private int altitude, blocking_score;
     private int lifepoints;
     private String id;
-    protected String pic = null;
+    protected String pic;
     
     //default explosion
     protected static String [] arrExplosion= new String [] {
-        "resources/images/common/explosion/exp1.png",
-         "resources/images/common/explosion/exp2.png",
-          "resources/images/common/explosion/exp3.png",
-           "resources/images/common/explosion/exp4.png",
-            "resources/images/common/explosion/exp5.png",
+        "resources/images/common/explosions/0.png",
+        "resources/images/common/explosions/1.png",
+        "resources/images/common/explosions/2.png",
+        "resources/images/common/explosions/3.png",
+        "resources/images/common/explosions/4.png",
+        "resources/images/common/explosions/5.png",
+        "resources/images/common/explosions/6.png",
+        "resources/images/common/explosions/7.png",
+        "resources/images/common/explosions/8.png",
+        "resources/images/common/explosions/9.png",
+        "resources/images/common/explosions/10.png",
+        "resources/images/common/explosions/11.png",
+        "resources/images/common/explosions/12.png",
+        "resources/images/common/explosions/13.png",
+        "resources/images/common/explosions/14.png",
+        "resources/images/common/explosions/15.png"
     };
     
     //------- OPERATIONS -------------
@@ -86,7 +97,7 @@ public abstract class Sprite {
         return this.bDead;
     }
     
-    final protected void setPos(int x, int y){
+    protected void setPos(int x, int y){
         this.x = x;
         this.y = y;
     }

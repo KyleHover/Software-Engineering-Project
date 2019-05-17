@@ -307,7 +307,7 @@ public class GameEngine implements IGameEngine{
          return this.arrTeams.get(1);
     }
     
-    protected boolean isCollide(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2){
+    protected static boolean isCollide(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2){
        //calculate the intersection
        int xmax = Integer.max(x1, x2);
        int xmin = Integer.min(x1+w1-1, x2+w2-1);

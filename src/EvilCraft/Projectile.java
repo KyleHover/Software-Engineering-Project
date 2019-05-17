@@ -91,9 +91,10 @@ public abstract class Projectile extends Sprite{
         }
     }
     
+    @Override
     public void drawOnMainView(ICanvasDevice canvas){
-        if(this.pic==null) return;
-        canvas.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
+        if(this.pic!=null)
+            canvas.drawImg(this.pic, this.getX(), this.getY(), this.getW(), this.getH(), 0);
     }
     
     /**
